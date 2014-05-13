@@ -1,0 +1,277 @@
+Barterlabs Changelog
+
+v.0.0.9b
+	5-12-14
+		-Made Barterlabs open source annoucement on reddit.com/r/php
+			*instantly learned that all of the passwords were still in-tact.
+			*removed passwords, re-uploaded repo to github
+		-Made public announcement to ride bike to L
+		-Removed unnecessary CSS from default.ctp layout
+	5-11-14
+		-Created github repository, Barterlabs is now open source!
+		 * https://github.com/jotliet/barterlabs
+v.0.0.8b
+	5-3-14
+		-Created a blog (barterlabs.com/posts/)
+			*Basic blog format
+			*Used pure.css styling
+			*Looks just like the old jotliet.com blog (which was accidentally deleted)
+				-Found the old jotliet.com posts in a Google cache, copied into new DB
+		-Worked on CSS for mobile.
+			*More work on the ever-troublesome navbar (bootstrap woes)
+		-Core.php change
+			*Somehow the local version of core.php was in production and the site was in debug mode
+
+v.0.0.7b
+	4-23-14
+		-Added PureCSS to thanks page.
+		-Worked on labSearch page.
+			*replaced ugly button with Pure button
+	4-24-14
+		-Fixed login_guest.ctp navbar css
+			*IE, Mozilla & Safari stylesheet compatibility problems.
+	4-26-14
+		-Added a modal to edit_profile.ctp.
+			*The default profile edit page is now inside a pop-up modal
+			*Added pure buttons to edit profile screen
+			*The edit_profile modal now shares the same .ctp file as the help file.
+		-Added "add_pic" modal
+			*The default profile Add Pic is now inside a pop-up modal
+			*Changed buttons to Pure style
+		-Added "edit_pic" modal
+			*The default profile Edit Pic is now inside a pop-up modal
+			*Changed buttons to Pure styl
+		-Added pure buttons to add_lab and edit_lab
+			*Decided not to made modals for these two. They're just too big
+		-Added "locaion" to profile views 
+			*loggedUserDesk.ctp
+			*viewedUserDesk.ctp
+		-Got rid of that awful "actions" box in the "allLabs" view all barters screen
+			*Replaced it with a nice drop-down link
+			*Styled the pill-style button with grey colors. Looks pretty snazzy.
+	4-27-14
+		-Fixed sign-in modal formfields.
+			*The formfields weren't auto adjusting, and looked terrible on mobile. fixed.
+		-Changed lab up/vote view
+			*added up/down glyphicon arrows
+			*placed LabLevel # in between arrows, direct rip-off of reddit. Thanks, Reddit.
+		-Removed all the styles from labs/view
+			*created individual elements for each piece of the page to make styling easier
+				-labPics
+				-labDispPicViewElement
+				-voteArrowsEleent
+				-labDetailTableElement
+
+
+
+v.0.0.6b
+	4-22-14
+		-Made a sign-in modal. It looks much nicer.
+		-User feedback suggests that an open site is preferred. So permissions have been changed. Guests can search and view labs, but not create labs or send emails.
+		 	*changed routes.php to redirect to labs/labs
+		 	*changed User Permissions (in admin dashboard) to allow for guests to view previously private pages
+		 	*The sign-in modal now appears on the /login screen, which a user can X out. It also appears when
+		 	 a guest user clicks "sign in" on the login_guest navbar
+		-Added a regitration modal. Like the login modal, non java users can still login using the
+		 regular page. Or the modal can be collapsed, and the user can login like normal.
+		-fixed "search" button on main search page
+		-Reintegrated pure.css into the stylesheet stack. Finally got rid of those godawful buttons.
+		-switched all layouts from "mainpage" to "default" for the sake of consistency, and so guest users can view labs & profiles.
+		-added subheading "this for that" under barterlabs logo on main search page
+		-Darkened the color of the word "close" on all the modals so it is easier to see
+		-Added a "help" modal to the guest user navbar 		 	 	
+
+v.0.0.5b
+	4-15-14
+		-Small changes to the UI
+			*removed erroneous link from "beta" navbar tab
+			*changed CkEditor from "full" to "standard" for Labs/Add
+			*changed CkEditor from "full" to "basic" for UsersEmail
+			*switched CkEditor color from blue to green.
+		-Added changelog to "beta" menu
+
+
+
+
+v.0.0.4b
+	4-14-14
+		-Removed "first_name", "last_name" from all_users.ctp
+			*For later: add a "Edit User" page so Administrators can edit individual users. We used to have one called "editUser" but I deleted it during a previous purge.
+		-Fixed UserEmails -- the controller wasn't working with the model for some reason, so I just moved the
+		 find() function to the controller, and it seems to work now. Not the best fix, but a fix none-the-less.
+		-Added tooltips to BLdash.ctp (Add new lab, settings, your profile, search barterlabs, beta software menu, etc...)
+		-Fixed "help" modal in "edit_profile" which was displaying the Welcome modal by mistake.
+		-Added Navbar Help Modal to main Navbar/help menu. 
+			*Created a visualization of toolbar in pshop to guide users through what's what.
+		-A New User modal appears when a user is finished registering, which explains the process and flow of the
+		 site.
+		-Created a "help" modal for users on the myProfile screen.
+		-Added "Free classified ads for trading services and things!" line to main login page.
+		-Added another "Sign Up" anchor link to the login navbar, next to "Forgot Password?"
+		-Built a proper Bug Report page with a list of stuff people can check.
+
+v.0.0.3b
+	4-9-14
+		-Added style to /Users/login "sign in" button.
+		-Added style to "forgot password?" link.
+		-Added glyphicons to main login page
+		-Added table to login page to organize the glyphicons a little easier
+		-User reported they could only register a username which included a number. I believe she was confused
+		 by the validation error message "username must be alphanumeric," so I changed the msg to "Letters and numbers only! (no spaces or anything)"
+		-added a Barterlabs Facebook page to maybe get some more testers involved. 
+		-added arrow glyphicon and underline to sign-up page, Kurshot's idea.
+		-Decided to eliminate user pics as part of profile.
+			*the default picture on a lab page is now the display picture
+			*changed my mind about user pictures. they're back.
+
+v.0.0.2b
+	4-5-14
+		-Added editProfileModal to editProfile.ctp so brand new users get a little message. As well as a
+		 help modal to editProfile that says sorta the same thing.
+		  *the new user modal was made by writing a variable to session, which is checked in editProfile.ctp.
+		   if the variable exists, then the modal is displayed once and only once, then the session is deleted.
+		  *The "help" anchor link needs to be styled.
+	4-7-14
+		-Style "help button" on editProfile page.
+		-Added "help" modal to editProfile page.
+		-Tinkered with the margins/padding on the login page for mobile devices
+			*it still looks pretty bad. but not quite as bad as before.
+		-Decided to eliminate Trade Descriptions. 
+		-Worked on Viewed/Logged Trade desks. General styling.
+		-Worked on view lab page styling.
+
+4-1-14 Barterlabs v.0.0.1b
+-Launched site to justhost. 
+-Changed primary domain from jotliet to barterlabs
+-Site didn't work at first, updated remote version of PHP to 5.4, works now for the most part
+-Stylesheet looks pretty bad.
+-Changed the directory of the changelog from ~/docs to /app/pages/CHANGELOG.TXT
+
+
+3-25-14
+-added first beta version number v.0.0.1 (MAJOR, SIGNIFICANT, REVISION)
+	-Version # in Lab.php 
+	-$this->Lab->returnVersionNumber();
+-worked on css for Settings Page (trying to eliminate radii for a more Metro-looking theme)
+
+3-24-14
+-worked more on fixed navbar. added "B" glyphicon
+-Changed the main page logo from "barterlabs" with the bong flask to "barterlabs"
+ with a big, green, capital "B"
+-Email feature: icon illuminates when user gets new email, shows number of new emails.
+
+3-23-14
+-Continued working on main search page. Defined @media sizes in umstyle.css
+-Added glyphicons to fixed navbar.
+
+3-22-14
+-Continued work on CSS.
+
+3-20-14
+-I tried to work this week, but my body and brain just wanted to rest. Resumed work today.
+-Began refining the CSS. Using Twitter Bootstrap as a framework and building up
+ from there.
+-Focused mostly on the Navbar header.
+
+3-14-14
+-Finished Search algorithm
+-All major development finished.
+
+3-10-14 through 3-14-14
+-Worked nonstop on Search function. Barely slept. Hardest work I've done
+ on the site so far. My brain was operating a 100% the entire time.
+
+3-10-14
+-Finished core functions for internal user messaging.
+
+3-9-14
+-Started working back in the UserEmails controller.
+-Built a functioning inbox
+-Built a functioning view
+-Built a functioning deleteEmail
+-Worked on UserEmail/view
+
+3-8-14
+-Finished the voting system. Used array_sum(); to count the total number
+ of votes inside the votes array. Total votes now display correctly on all
+ labs and users view pages.
+-Cleaned the code inside Labs/view function. 
+-Cleaned the code inside UsersController/viewUser & UsersController/myprofile 
+
+3-7-14
+-Began work on counting a user's total lab votes. Halfway done, shouldn't be too hard
+ to finish, but I'm tired and it's friday. I got a lot done this week. :0)
+
+3-6-14
+-Refined the voting system. User can now upvote or downvote a lab (one vote per user
+ per up or down, with the ability to change from down to up, up to down)
+-Made decision to only allow voting on Labs (not user profiles or pictures or comments)
+ This, of course, might change.
+
+3-4-14
+-Added ability for users to add/edit/delete pics
+-Added ability for users to add/edit/delete Labs
+-Users can now view a list of all their labs, which is accessible 
+    from the dash menu/screen and profile view screen.
+
+3-3-14
+-Finished viewedUserPics looping system. Now when you view a user's profile, all of their
+	projects are displayed on the page. One pic per Lab can be a display picture.
+-Added the ability for users to view large version of pictures
+-Added the ability for users to delete their pictures
+-Added a checkbox to the "add pic" page to make a picture a display picture
+-Added the tag/description field
+-****still to do: editPic function. It will be almost exactly the same code as the
+	 viewPic function, except with forms. Use the same security user validation measures
+	 I used for deletePic.
+
+3-1-14
+-Finally figured out the disphoto system. 
+	*User hasmany Labs
+	*Labs hasmany Pics
+		-some pics = dispics (dispic = 1)
+	*Foreach Labs save all pics equal to dispic as array[]
+	
+
+2-26-14
+-Figured out system for a single photo in a collection being used as a display photo. By creating
+a field in 'pics' called 'isdisp' if it's set to 1 then it's the display photo.
+
+2-19-14
+-Cleaning controller code. Moving functions to model classes where applicable.
+-Created barterlabs/docs folder to hold important documents
+-Created BL_API.php to keep track of growing list of custom functions
+
+2-18-14
+-Eliminated the MainsController and repurposed its functions to
+usermgmt.UsersController and LabsController
+-Continued work on site routing and user experience
+-Almost have the mail system working
+-Almost have the search function working
+-To do before launch: finish mail, finish search, finish pictures, make site pretty.
+
+-Pictures can be an element that just foreach loops through all
+of the pics with the current lab_id. The logic can be held in the 
+controller and the formatting should be written in add/edit/view/etc... files.
+
+2-1-14
+Considering abandoning the science theme after a productive
+workshop session with alpha-users.
+
+1-30-14
+Fixed the town_id in the individual lab view
+	(the secret was primaryKey => $id)
+Lab view displays LabLevel
+Lab view displays Catalyst 
+Lab view displays Link
+Lab view displays gradient Lab Description (WIP)
+
+1-29-14
+Continued work on Mains controller.
+Added Catalyst to DB 
+Added Project Name and State Name to view
+Refined MainsController.php
+
+1-28-14
+Decided to make the changelog.txt public starting with
+tomorrow's date...

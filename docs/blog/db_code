@@ -1,0 +1,24 @@
+/***********************************************************/
+/********************BLOG DATABASE CODE*********************/
+/***********************************************************/
+
+
+
+CREATE TABLE IF NOT EXISTS `posts` (
+`id` int(11) NOT NULL auto_increment,
+`title` varchar(50) default NULL,
+`content` text,
+`created` datetime default NULL,
+`modified` datetime default NULL,
+`published` tinyint(1) NOT NULL default '1',
+PRIMARY KEY (`id`)
+);
+
+INSERT INTO `posts`
+(`id`, `title`, `content`, `created`, `modified`, `published`) VALUES
+
+(1, 'Title 1', 'CONTENT 1','2014-05-10 00:00:00','2014-05-10 00:00:00','1'),
+
+(2, 'Title 2', 'CONTENT 2','2014-05-10 00:00:00','2014-05-10 00:00:00','1'),
+
+(3, 'Title 2', 'CONTENT 3','2014-05-10 00:00:00','2014-05-10 00:00:00','1');

@@ -1,0 +1,24 @@
+# User specific & automatically generated files #
+#################################################
+/sftp-config.json
+c:\xampp\htdocs\barterlabs\sftp-config.json
+/app/Config/database.php
+c:\xampp\htdocs\barterlabs\app\config\database.php
+/app/tmp
+/lib/Cake/Console/Templates/skel/tmp/
+/plugins
+/vendors
+/build
+/dist
+/tags
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

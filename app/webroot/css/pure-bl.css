@@ -1,0 +1,94 @@
+/* this is the barterlabs extension of pure-min.css */
+
+
+
+.button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 3px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+
+.nav-all-labs{
+    margin:0px;
+    padding: 0px 0px 5px 10px;
+}
+
+.nav-all-labs > li > a{
+    background-color:  #B4B4AF;
+    color: #FFFFFF;
+    padding: 2px 5px 2px 5px;
+ }
+
+.nav-all-labs > li > a:hover{
+    background-color: #AAAAA6;
+    color: #EBEBEB;
+    text-decoration: none;
+ }
+
+.nav-all-labs > li > a:active{
+    background-color: #999966;
+    text-decoration: none;
+ }
+
+.nav-all-labs > li > a:after{
+    background-color: #999966;
+    text-decoration: none;
+ }
+
+
+.vote-arrows{
+    /*border:1px solid #000;*/
+    display: inline-block;
+    float: left;
+    margin: 10px 0 0 15px;
+
+}
+
+.arrow-number{
+    font-size: 12px;
+    color: #00CC00;
+    font-weight: bold;
+}
+
+
+.labDispPicViewElement{
+    border:1px solid #5C5C3D;
+    padding: 5px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    max-width: 500px; 
+    max-height: 500px; 
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+
+.labDescElement {
+
+margin:25px;
+}
+
+.voteArrowsElement {
+display: inline-block;
+}
+
+.labPics {
+border:1px solid #5C5C3D;
+display: inline-block;
+background-color: #ffffff;
+padding: 10px;
+margin: 25px;
+}
+
+.labDetailTableElement{
+    display: inline; 
+}
