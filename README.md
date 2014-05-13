@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Barterlabs
 
 You can visit the live production site of barterlabs.com right now at http://www.barterlabs.com
@@ -34,8 +35,13 @@ Hack away, and thanks for being a part of the barterlabs community!
 barterlabs
 ==========
 =======
+=======
+>>>>>>> e28079a4bff0ed5e0a95d76de4ff79345665557c
 barterlabs
 ==========
 
 Barterlabs.com - CakePHP Source Code
+<<<<<<< HEAD
 >>>>>>> f2bd04b9c8a8c7aea5f82f72ec3073befe601cf7
+=======
+>>>>>>> e28079a4bff0ed5e0a95d76de4ff79345665557c
