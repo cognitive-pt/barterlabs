@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 Barterlabs
 
 You can visit the live production site of barterlabs.com right now at http://www.barterlabs.com
@@ -27,21 +24,6 @@ You should now have a full Barterlabs database schema.
 That should be everything. Since Barterlabs is built on top of CakePHP, you may see some errors. Follow the directions that Cake gives you to finish customizing the code to your localhost.
 
 Hack away, and thanks for being a part of the barterlabs community!
-=======
-=======
->>>>>>> 20ee3778beb254977266655f10fa4583504d54e6
-=======
->>>>>>> c0d4eb1e5391bc84304fa97539da198088bded9d
-barterlabs
-==========
-=======
-=======
->>>>>>> e28079a4bff0ed5e0a95d76de4ff79345665557c
-barterlabs
-==========
 
 Barterlabs.com - CakePHP Source Code
-<<<<<<< HEAD
->>>>>>> f2bd04b9c8a8c7aea5f82f72ec3073befe601cf7
-=======
->>>>>>> e28079a4bff0ed5e0a95d76de4ff79345665557c
+
