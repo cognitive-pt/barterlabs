@@ -1,22 +1,17 @@
-<div class="um-panel">
-	<div class="um-panel-header">
-		<span class="um-panel-title">
+
+    <div style = "margin-left: 25px;">
+        <?php echo $this->Html->link(__('View Barters as List'), array('controller'=>'Labs', 'action' => 'allLabs', 'plugin'=>''));?>
         
-        
-        <?php echo $this->Html->link(__('Trading Post'), array('controller'=>'Labs', 'action' => 'allLabs', 'plugin'=>''));?>
-        
-        
+        <?php echo " / "; ?>
 				
-		</span>
-		<span class="um-panel-title-right">
-			<?php echo $this->Html->link(__('Add Barter', true), '/labs/add');?>
-		</span>
+		<?php echo $this->Html->link(__('Add Barter', true), '/labs/add');?>
 	</div>
 
 
+
     
     
-	<div class="um-panel-content" style="background-image: url('<?php echo $this->Image->resize('img/'.IMG_DIR, $user['UserDetail']['bgphoto'], 800, null, true) ?>');">
+
     
 <div class="eachlab">
 <?php if (!empty($dispics)){?>
@@ -49,5 +44,5 @@
 <?php endforeach; ?>
 <?php }?>
 </div>
-	</div> <!--closes um-panel-content and BG image-->
+	
 </div> <!--closes um-panel-->

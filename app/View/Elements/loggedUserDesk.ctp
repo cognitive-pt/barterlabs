@@ -10,7 +10,20 @@
 <div class="um-panel">
 	<div class="um-panel-header">
 		<span class="um-panel-title">
-			<?php echo h($user['User']['username'])?>
+			<?php echo $user['User']['username'];?>
+				<div>
+					<?php
+						echo $this->Html->link(__(' (click here to see how your profile looks to other users) '), 
+							array(
+								'controller'=>'Users', 
+								'action' => 'viewUser', $userId,
+								'plugin'=>'usermgmt'));?>
+				</div>
+
+
+
+
+
 		</span>
     	<span class="um-panel-title-right">
 			<?php echo $this->Html->link(__('Edit', true), '/editProfile');?>
@@ -22,9 +35,7 @@
 		</span>
 	</div>
 
-	<div class="um-panel-content" 
-		 style="background-image: url('<?php echo $this->Image->resize('img/'.IMG_DIR,
-		 			$user['UserDetail']['bgphoto'], 800, null, true)?>');">
+	<div class="um-panel-content">
     
   
 		<div class="u-row"> 
@@ -42,13 +53,7 @@
 											<td><?php echo "LabLevel: "?></td>
             					        	<td><?php echo $this->element('votecounter');?></td>
             					        </tr>
-            					        
-            					        <tr> 
-											<td><?php echo "Location: "?></td>
-            					        	<td><?php echo $state;?></td>
-            					        </tr>
-
-
+            					    
             					        <tr>
 											<td><strong><?php echo __('Member Since:');?></strong></td>
 											<td><?php echo $this->Time->format(

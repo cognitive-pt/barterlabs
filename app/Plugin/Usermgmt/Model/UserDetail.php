@@ -6,11 +6,7 @@ class UserDetail extends UserMgmtAppModel {
 
 public $actsAs = array('Search.Searchable');
 
-var $hasMany = array('Tradeicon','Lab');
-
-var $belongsTo = array('State');
-
-
+var $hasMany = array('Lab');
 
 	/**
 	 * model validation array
@@ -30,17 +26,7 @@ var $belongsTo = array('State');
 						'rule'=>array('maxLength', 40),
 						'message'=>'Please limit your Trade Name to 40 characters!'
 						)
-				),
-								
-				'state_id'=>array(
-					'mustNotEmpty'=>array(
-						'rule'=>'notEmpty',
-						'message'=>'Please select a state!'
-						),
-				),
-				
-
-				
+				),    	
 				'photo'=> array(
 					'mustValid'=>array(
 						'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg', '')),
@@ -48,12 +34,7 @@ var $belongsTo = array('State');
 						'last'=>true)
 					),
 					
-				'bgphoto'=> array(
-					'mustValid'=>array(
-						'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg', '')),
-						'message'=> __('Please supply a valid image'),
-						'last'=>true)
-					)
+				
 					
 								);
 		$this->validate=$validate1;
@@ -91,10 +72,10 @@ var $belongsTo = array('State');
 	
 		//this function retrieves the numerical id 
 		//of the state saved in UserDetails
-	public function getStateId($userId){
+	/*public function getStateId($userId){
 		$res = $this->find('first', array('conditions' => array('UserDetail.user_id'=>$userId), 'fields' => array('UserDetail.state_id')));
 		$stateId =(!empty($res)) ? ($res['UserDetail']['state_id']) : '';
-		return $stateId;} //end of getStateId()
+		return $stateId;} //end of getStateId()*/
 
 
 	

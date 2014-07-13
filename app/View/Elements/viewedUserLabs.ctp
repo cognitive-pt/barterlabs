@@ -1,57 +1,43 @@
-<div class="um-panel">
-	<div class="um-panel-header">
-		<span class="um-panel-title">
-			<?php echo h('Trading Post 	'); ?>
-		</span>
-
-		<span class="um-panel-title-right">
-			<?php 
-				if ($userId==$viewedUser['User']['id']){		
-					echo $this->Html->link(__('Add Barter', true), '/labs/add');
-				}
-			?>
-		</span>
-	</div>
+<strong><?php echo "This is a list of everything ".$viewedUser['User']['username']." has to barter! Click any image for more info, or to make a trade!"; ?></strong>
+	
 
 
-    
-    
-	<div class="um-panel-content" style="background-image: url('<?php echo $this->Image->resize('img/'.IMG_DIR, $user['UserDetail']['bgphoto'], 800, null, true) ?>');">
-    
-<div class="eachlab">
-<?php if (!empty($dispics)){?>
-<?php foreach($dispics as $dispic): { ?>	
+<div class="pure-g">
+	<?php if (!empty($dispics)){?>
+	<?php foreach($dispics as $dispic): { ?>
 
-<?php 	
-			//only display a picture if there is a pic assc with the lab
-			if (!empty($dispic['Pic']['name'])){
+	        <div class="photo-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+	<?php //only display a picture if there is a pic assc with the lab
 
-		echo $this->Html->link($this->Html->image('pics/' . $dispic['Pic']['name'], 
-		array(
-			'alt'=> $dispic['Pic']['tag'], 
-			'height'=>'150', 
-			'width'=>'150')), 
-		array('controller' => 'labs', 
-			'action' => 'view', $dispic['Pic']['lab_id'],'plugin'=>''), 
-    	array('escape' => false));
-		}
-		
-			else {
-					echo $this->Html->link($this->Html->image('pics/' . 'error.jpg', 
-					array(
-						'height'=>'150', 
-						'width'=>'150'
-						)), 
-					array('controller' => 'labs', 
-						'action' => 'view','plugin'=>''), 
-					array('escape' => false));
-				}	
-?>
+	if (!empty($dispic['Pic']['name'])){
 
-<?php }?>
+			echo $this->Html->link($this->Html->image('pics/' . $dispic['Pic']['name'], 
+				array(
+					'alt'=> $dispic['Pic']['tag'])), 
+				array('controller' => 'labs', 
+					'action' => 'view', $dispic['Pic']['lab_id'],'plugin'=>''), 
+		    	array('escape' => false)
+		    	);
+			}
+				else {
+						echo $this->Html->link($this->Html->image('pics/' . 'error.jpg', 
+						array(
+							'height'=>'150', 
+							'width'=>'150'
+							)), 
+						array('controller' => 'labs', 
+							'action' => 'view','plugin'=>''), 
+						array('escape' => false));
+					}	
 
-<?php endforeach; ?>
-<?php }?>
+
+	        ?>  
+	            <aside class="photo-box-caption">
+	                <span>
+	            <?php echo $this->Html->link(__($dispic['Pic']['tag'], true), array('controller'=>'Labs', 'action'=>'view',$dispic['Pic']['lab_id'],'plugin'=>''));?>
+	                </span>
+	            </aside>
+	        </div>
+	<?php } endforeach;
+	} ?>
 </div>
-	</div> <!--closes um-panel-content and BG image-->
-</div> <!--closes um-panel-->

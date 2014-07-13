@@ -39,7 +39,7 @@
 
 	Router::connect('/', array('controller' => 'labs', 'action' => 'index'));
 	
-
+	Router::parseExtensions('rss');
 
 
 /**

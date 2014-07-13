@@ -1,8 +1,10 @@
 # User specific & automatically generated files #
 #################################################
 /sftp-config.json
+c:\xampp\htdocs\barterlabs\Config\core.php
 c:\xampp\htdocs\barterlabs\sftp-config.json
 /app/Config/database.php
+/app/Config/core.php
 c:\xampp\htdocs\barterlabs\app\config\database.php
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/

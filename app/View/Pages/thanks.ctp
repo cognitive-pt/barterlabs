@@ -23,6 +23,10 @@
 		<div class="login-bullets-container" style="margin-top:35px;margin-left:10px;">
 			<div class="greylinks">
 				<ul>
+					<li><strong><?php echo $this->Html->link('Google Developers','https://developers.google.com/',
+									  array('target' => '_blank'));?></strong>
+							    <?php echo " Revolutionary internet company which shares the wealth of its knowledge for the betterment
+							    		 	 of the world.";?></li>
 					<li><strong><?php echo $this->Html->link('CakePHP','http://www.cakephp.org',
 									  array('target' => '_blank'));?></strong>
 							    <?php echo " Cake Software Foundation, Inc.";?></li>
@@ -43,10 +47,21 @@
 				 				<?php echo " Free icons for perfectly prepared data, modern look and easy usability for graphics of all kinds.";?></li>
 				 	<li><strong><?php echo $this->Html->link('Reddit.com','http://www.reddit.com/',
 									  array('target' => '_blank'));?></strong>
-				 				<?php echo " Ecompassing the spirit of the open-source community which drives innovation.";?>	 </li>
+				 				<?php echo " Ecompassing the spirit of the open-source community which drives innovation and competition.";?>	 </li>
 				 	<li><strong><?php echo $this->Html->link('PureCSS','http://purecss.io/',
 									  array('target' => '_blank'));?></strong>
 				 				<?php echo " A set of small, responsive CSS modules that you can use in every web project.";?>	 </li>
+				 	<li><strong><?php echo $this->Html->link('ooCharts','http://oocharts.com/',
+									  array('target' => '_blank'));?></strong>
+				 				<?php echo " An extraordinary toolkit for building your very own Google Analytics™ dashboard";?>	 </li>
+				 	<li><strong><?php echo $this->Html->link('Andrew Perkins','http://andrewperkins.net/cakephp/',
+									  array('target' => '_blank'));?></strong>
+				 				<?php echo " A talented PHP / CakePHP developer who shares the wealth of his knowledge with the world.";?>	 </li>
+
+
+				 	<li><strong><?php echo $this->Html->link('People','#');?></strong>
+				 				<?php echo " Kevin, Graham, Said, Renee and many many many more!";?>	 </li>
+
 
 
 

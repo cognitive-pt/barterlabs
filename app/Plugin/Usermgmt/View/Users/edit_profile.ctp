@@ -51,19 +51,6 @@ if (!empty($editProfileModal)){
             	</div>
             </div>
          </div>
-
-
-		
-        
-        		<div class="um-form-row control-group">
-			<label class="control-label"><?php echo __('State');?></label>
-			<div class="controls">
-				<?php echo $this->Form->input('UserDetail.state_id', array('label'=>false, 'div'=>false)); ?>
-				<div style="color:#003D4C;font-size:10px;display:inline-block;">
-            		<?php echo "This helps narrow search results. It can be changed later.";?>
-            	</div>
-			</div>
-		</div>
         
         
 		<div class="um-form-row control-group">
@@ -77,15 +64,7 @@ if (!empty($editProfileModal)){
 		</div>
         
         
-        	<div class="um-form-row control-group">
-			<label class="control-label"><?php echo __('Landscape Photo');?></label>
-			<div class="controls">
-				<?php echo $this->Form->input('UserDetail.bgphoto', array('label'=>false, 'div'=>false, 'type' => 'file')); ?>
-				<div style="color:#003D4C;font-size:10px;">
-            		<?php echo "Make your profile pretty with a background picture!";?>
-            	</div>
-			</div>
-		</div>
+        	
 
 
 	    <div>
@@ -105,116 +84,7 @@ if (!empty($editProfileModal)){
  	</div>
 </div>
 
-<?php  /**************************************
-	   ***************************************
-	   **************MODALS*******************
-	   ***************************************
-	   **************************************/
-?>
 
-
-
-<?php /***********************Edit Profile Modal****************************/?>
-		<div class="modal hide fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-              <div class="pull-right" style="font-size: 15px; font-weight:bold;">	
-            	<?php echo $this->Html->link(__('x', true), array('action'=>'myprofile'));?>
-              </div>
-                <h3 class="modal-title" id="myModalLabel"><?php echo __('Edit Profile'); ?></h3>
-            </div>
-			<?php/************************************************************************************************/?>	
-			<div class="modal-body">
-                
-				<div class="um-panel">
-					
-
-					<div class="um-panel-content" style="border-top: 3px solid #CCCCCC;">
-						<?php echo $this->element('Usermgmt.ajax_validation', array('formId' => 'editProfileForm', 'submitButtonId' => 'editProfileSubmitBtn')); ?>
-						<?php echo $this->Form->create('User', array('type' => 'file', 'id'=>'editProfileForm', 'class'=>'form-horizontal')); ?>
-						<?php echo $this->Form->hidden('id'); ?>
-						<?php echo $this->Form->hidden('UserDetail.id'); ?>
-						<?php $changeUserName = (ALLOW_CHANGE_USERNAME) ? false : true; ?>
-
-						<div class="um-form-row control-group" style="color:#003D4C;font-size:14px;font-weight:bold;">
-							<?php echo "Personalize your experience and tell us a little about yourself!";?>
-						</div>
-				        
-				        
-						<div class="um-form-row control-group">
-							<label class="control-label required"><?php echo __('Email');?></label>
-							<div class="controls">
-								<?php echo $this->Form->input('email', array('label'=>false, 'div'=>false)); ?>
-							</div>
-						</div>
-				        
-				        
-				        
-
-
-						<div class="um-form-row control-group">
-				        	<label class="control-label required"><?php echo __('Tagline');?></label>
-				            <div class="controls">
-				            	<?php echo $this->Form->input('UserDetail.tradename', array('label'=>false, 'div'=>false));?>
-				            	<div style="color:#003D4C;font-size:10px;display:inline-block;">
-				            		<?php echo "ex: Joe's Fishing; Seagulls-R-We; I heart Bikes; Barterlabs.com";?>
-				            	</div>
-				            </div>
-				         </div>
-
-
-						
-				        
-				        		<div class="um-form-row control-group">
-							<label class="control-label"><?php echo __('State');?></label>
-							<div class="controls">
-								<?php echo $this->Form->input('UserDetail.state_id', array('label'=>false, 'div'=>false)); ?>
-								<div style="color:#003D4C;font-size:10px;display:inline-block;">
-				            		<?php echo "This helps narrow search results. It can be changed later.";?>
-				            	</div>
-							</div>
-						</div>
-				        
-				        
-						<div class="um-form-row control-group">
-							<label class="control-label"><?php echo __('User Photo');?></label>
-							<div class="controls">
-								<?php echo $this->Form->input('UserDetail.photo', array('label'=>false, 'div'=>false, 'type' => 'file')); ?>
-								<div style="color:#003D4C;font-size:10px;">
-				            		<?php echo "This is the picture people will see when they visit your profile page.";?>
-				            	</div>
-							</div>
-						</div>
-				        
-				        
-				        	<div class="um-form-row control-group">
-							<label class="control-label"><?php echo __('Landscape Photo');?></label>
-							<div class="controls">
-								<?php echo $this->Form->input('UserDetail.bgphoto', array('label'=>false, 'div'=>false, 'type' => 'file')); ?>
-								<div style="color:#003D4C;font-size:10px;">
-				            		<?php echo "Make your profile pretty with a background picture!";?>
-
-
-				            
-
-				            	<div class="pull-right">
-							<div class="editProfileHelpBtn">
-
-							<a class="pure-button button-primary pull-left" data-dismiss="modal" data-toggle="modal" href="#myModal">Help</a>
-
-								
-							
-							</div>
-
-				            </div>
-
-
-            	</div>
-			</div>
-		</div>
-
-
-	    
-			
 				
 				
 	 	
@@ -222,11 +92,7 @@ if (!empty($editProfileModal)){
 </div>
 
 			</div>
-			<?php/************************************************************************************************/?>	
-			<div class="modal-footer">
-			    <?php echo $this->Form->Submit('Update Profile', array('class'=>'pure-button button-success pull-left', 'id'=>'editProfileSubmitBtn')); ?>
-				<?php echo $this->Form->end(); ?>
-			</div>
+			
 		</div>
 
 

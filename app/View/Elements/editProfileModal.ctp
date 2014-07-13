@@ -12,7 +12,7 @@
 
                 <p>The first step is to build a profile. Bartering is all about building connections with people in the real world, so you'll increase your chances of success by building a well-rounded profile. The more that others discover who you are, the more trust you will build with the community!</p>
 
-                <p>Click the "help" button for help filling out the form!</p>
+                <p>Tap the "help" button for help filling out the form!</p>
 
             </div>
             <div class="modal-footer">

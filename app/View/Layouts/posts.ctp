@@ -14,6 +14,19 @@
 			<script language="javascript">
 			var urlForJs="<?php echo SITE_URL ?>";
 		</script>
+
+	<script> <!--Google analytics scripts -->
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51187144-1', 'barterlabs.com');
+  ga('send', 'pageview');
+
+</script>
+
+
 		<?php
 			echo $this->Html->meta('favicon');
 			/* Bootstrap CSS */
@@ -24,34 +37,16 @@
 
 			/* Usermgmt Plugin CSS */
 			echo $this->Html->css('/usermgmt/css/umstyle.css?q='.QRDN);
-			
-			/* Bootstrap Datepicker is taken from https://github.com/eternicode/bootstrap-datepicker */
-			echo $this->Html->css('/plugins/bootstrap-datepicker/css/datepicker.css?q='.QRDN);
-
-			/* Bootstrap Datepicker is taken from https://github.com/smalot/bootstrap-datetimepicker */
-			echo $this->Html->css('/plugins/bootstrap-datetimepicker/css/datetimepicker.css?q='.QRDN);
-			
-			/* Chosen is taken from https://github.com/harvesthq/chosen/releases/tag/0.14.0 */
-			echo $this->Html->css('/plugins/chosen/chosen.css?q='.QRDN);
 
 			/* Jquery latest version taken from http://jquery.com */
 			echo $this->Html->script('jquery-1.10.2.min.js');
 			
 			/* Bootstrap JS */
 			echo $this->Html->script('bootstrap.js?q='.QRDN);
-
-			/* Bootstrap Datepicker is taken from https://github.com/eternicode/bootstrap-datepicker */
-			echo $this->Html->script('/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js?q='.QRDN);
-
-			/* Bootstrap Datepicker is taken from https://github.com/smalot/bootstrap-datetimepicker */
-			echo $this->Html->script('/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?q='.QRDN);
 			
 			/* Bootstrap Typeahead is taken from https://github.com/biggora/bootstrap-ajax-typeahead */
 			echo $this->Html->script('/plugins/bootstrap-ajax-typeahead/js/bootstrap-typeahead.min.js?q='.QRDN);
 			
-			/* Chosen is taken from https://github.com/harvesthq/chosen/releases/tag/0.14.0 */
-			echo $this->Html->script('/plugins/chosen/chosen.jquery.min.js?q='.QRDN);
-
 			/* Usermgmt Plugin JS */
 			echo $this->Html->script('/usermgmt/js/umscript.js?q='.QRDN);
 			echo $this->Html->script('/usermgmt/js/ajaxValidation.js?q='.QRDN);
@@ -65,6 +60,7 @@
 				/* Pure Blog CSS */
 				echo $this->Html->css('main-grid.css?q='.QRDN);
 				echo $this->Html->css('blog.css?q='.QRDN);
+				echo $this->Html->css('gallery.css?q='.QRDN);
 
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
@@ -77,13 +73,9 @@
 	<body>
 
 			
-				<?php
-					if($this->UserAuth->isLogged()) {
+				<?php	
 						echo $this->element('blDash');
-					} else{
-						echo $this->element('Usermgmt.login_guest');?>
-						</div></div>
-					<?php } ?>
+				?>	
 
 
 <div id="layout" class="pure-g">
@@ -117,6 +109,21 @@
                         			?>
 			                    
 			                    </div>
+
+								<div class="nav-item">
+			                    
+			                        <?php echo $this->Html->link(
+			                            'Subscribe (RSS)',
+			                            	array('controller'=>'Posts', 'action' => 'index', 'ext'=>'rss'),
+			                            	array('class'=>'pure-button')
+			                        	);
+                        			?>
+			                    </div>
+			             		
+
+
+
+
 			                </ul>
 			            </nav>
         </div>
@@ -136,6 +143,7 @@
 		
 	    
 		<div id="footer" style="margin-top: 5em;">
+		<p><?php echo $this->element('sm_footer');?></p>
 			<div class="container">
 				<p class="muted">Copyright &copy; 2013-<?php echo date('Y');?> Bird, Egg & Flower LLC. All Rights Reserved. Developed by <a href="http://www.jotliet.com/" target='_blank'>Team Barterlabs.</a></p>
 			</div>

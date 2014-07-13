@@ -3,10 +3,13 @@
 
 App::uses('UserMgmtAppModel', 'Usermgmt.Model');
 App::uses('CakeEmail', 'Network/Email');
+App::uses('Pic','Model');
 
 class Post extends AppModel {
 	var $belongsTo = array('User');
-		
+	var $hasMany = array('Pic', 'Comment');
+
+
 			 public $validate = array(
 			        'title' => array(
 			            'rule' => 'notEmpty'

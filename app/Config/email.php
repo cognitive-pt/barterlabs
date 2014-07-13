@@ -41,19 +41,19 @@ class EmailConfig {
 
 	public $default = array(
 		'transport' => 'Mail',
-		'from' => 'catpainzmcspice@barterlabs.com',
+		'from' => 'trades@barterlabs.com',
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
-		'port' => 25,
+		'from' => array('trades@barterlabs.com' => 'trades@barterlabs.com'),
+		'host' => 'just21.justhost.com',
+		'port' => 993,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'trades@barterlabs.com',
+		'password' => 'Be@rsB|rdsD0gsC@ts',
 		'client' => null,
 		'log' => false,
 		//'charset' => 'utf-8',

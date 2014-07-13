@@ -1,5 +1,167 @@
 Barterlabs Changelog
 
+To Do:
+	@Questions:
+		-How do I trade with someone in a different location?
+		-How do I delete a lab?
+		-What if I want to deactivate my lab for a while?
+		-What happens when my lab expires?
+		-How do I activate an expired or deactivated lab?k
+		-What happens when I've successfully traded something?
+
+	@Build a map for the bike trip
+	@Add a “okay to contact me with other barters” button
+	@Add “looking for” tags
+	@Change all the “clicks” to “taps”
+	@Add trade type to “view” pages
+	@Actually, just copy everything craigslist does
+	@Allow upvotes for non-logged in users (IP address)
+	@add page titles to Blog and Users pages through the main layouts ($this->set can send info to layouts!)
+
+	@Build automated site maintenance routines
+		-Remove faulty labs
+		-Expire old labs
+	@Add tags system for "looking for" stuff
+	@Add front page panel with:
+		-Add Barter
+		-Blog
+		-FAQ
+		-List of stuff "free, secure, anything-for-anything, bringing bartering into the 2014"
+	@EditLabs functions
+		-Add "activate/deactivate/traded"
+	@Activate/Deactivate/Expire/Traded tags
+		-Add functions to
+			-EditLab (edit options)
+			-viewLab detail box
+			-myprofile (ribbons, edit options)
+			viewuser (ribbons)
+		-Make it so only active labs can be ENGAGED
+
+7-2-14
+		-I was working on a clone of the site to use for a portfolio, and accidentally brought the whole site down.
+		 I must have accidentally reverted the version of PHP back to 5.2 because the site simply wouldn't work. After
+		 reviewing the problem/fix I used on the launch day, I updated the server PHP to 5.4, and it started working - 
+		 not before deleting and re-uploading the entire contents of the server a couple times. Was ready to throw in 
+		 the towel. 
+
+v.0.1.4b
+	6-16-14
+		-Added email script to send me an email when somebody comments (if it ever happens)
+
+v.0.1.4b
+		-Added comments to Blog
+		-Added blog to guest navbar
+
+v.0.1.4b
+		@Talked with Tim Ganter from the HUB who suggested I use some sort of image compression.
+			-He suggested imagemagick (imagick) or GD, otherwise the site is unusable.
+			-I am meeting him for his office hours on Thursday at 11 to discuss layour / design
+			-In the meantime i'm gonna try to write some GD code to compress images
+				*I've had difficulty implementing Imagick into CakePHP in the past
+				*I really want Barterlabs to remain stand-alone software that doesn't require tons of
+				 different libraries and plug-ins just to operate. CakePHP is about as 3rd party as
+				 I like to go. And while the usermgmt plug-in was invaluable, I've since re-written the
+				 entire thing, it basically only exists in name.
+			-Excited to meet with Tim. Finally some insight from a pro who is graciously donating his time and skill.
+			-Also asked Seth's (HUB hackathon leader) advice. He said to go with a simple wrapper class.
+				*Think I'll use GD.
+			-Used GD.
+
+v.0.1.3b
+		@Built a cool new thumbnail thing for labs/view with CSS
+
+v.0.1.3b
+		@Built Activate/Deactivate/Traded/Expire system
+			-Deactivated & Expired labs no longer appear in search results
+				*Activated labs appear
+				*3 Traded labs appear at the bottom
+			-Users can set labs in allLabs to activate/deactivated/traded
+			-Built some CSS ribbons for the front page
+				*Traded, New and Hot
+		@For some reason tooltips were only activated on blDash, so I moved the js to the layout
+
+v.0.1.3b
+		@Continued work for non-registered users
+			-Built an external Email class
+				-All messages now send an email from trades@barterlabs.com
+				-Special considerations for anonymous users
+					*both for labs created by Anon users and anonymous users sending emails
+			-Fixed labs/view to include new state_id & town_id fields
+				*removed 'location' from user profiles
+			-Anon users can now contact regular users
+		@Built a FAQ
+		@Changed "online users" settings in Admin Control panel to view more results
+
+v.0.1.3b
+	6-6-14
+		@Continued working on non-registered users
+			-Began work on editLab classe
+			-Refined blDash.ctp
+				*removed a lot of erroneous CSS
+				*Reworked navbar for non-registered users
+			-There were some inherited coding errors involved with labs/addPic class and the DB pics table. All fixed.
+			-Built styles for the new createLab classes
+
+v.0.1.3b
+	6-5-14
+		@Began making the site available to post for non-registered users
+			-Removed rows from user_detail 
+				*tradedesc, state_id, bg_photo
+				*Removed assocations from models / tables
+					-UserDetai, Lab, State, Town
+			-Added lots of trade types
+				* item / services
+			-Added state_id's to the town table
+			-Successfully finished new createLab classes
+				*createLab($id)
+				*createLabState
+				*createLabTown
+				*createLabItemservice
+				*createLabType
+				*createLabAdd
+
+v.0.1.2b
+	6-1-14
+		-Added an RSS feed to the Blog	
+		-Add social media icons
+			*Footer of default.ctp
+			*Footer of blog
+			*Also top of blog
+		-Changed some of the "clicks" to "taps" ... yep.
+
+v.0.1.1b
+	5-27-14
+		-Totally reworked viewProfile view.
+		-Changed the order of the displayed labs on the front page
+			*Hot labs first, new labs 2nd
+			*Labs w/o DB pics won't be displayed on front page anymore (no more ugly Zelda screens)
+
+v.0.1.0b
+	5-21-14
+		-Removed "State" field from labSearch.ctp (for now, because it doesn't work yet)
+		-Totally re-worked labs/view. 
+		-Now page <title>s change for every lab
+
+
+
+v.0.0.11b
+	5-20-14
+		-Added add/edit/delete/view code for Blog pictures. No more Filezilla
+		-Created a Google Analytics account
+			*Created embeded Analytics page in UserSettings
+			*Accessible from Settings Dashboard
+			*...or URL barterlabs.com/usermgmt/UserSettings/analytics
+			*Code based on oocharts API and Google Analytics (ga) API
+		-Updated thanks.ctp 
+			*Added developers.google.com (and Google in general)
+			*Added www.oocharts.com
+
+v.0.0.10b
+	5-18-14
+		-experimenting with new color schemes
+		-added a link to the blog on the main screen
+		-working on a new dynamic front page... needs content
+
 v.0.0.9b
 	5-12-14
 		-Made Barterlabs open source annoucement on reddit.com/r/php

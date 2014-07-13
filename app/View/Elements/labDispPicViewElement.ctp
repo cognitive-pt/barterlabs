@@ -13,13 +13,6 @@
 	} 
 
 		else {
-			echo $this->Html->link($this->Html->image('pics/' . 'error.jpg', 
-			array(
-				'height'=>'250', 
-				'width'=>'250'
-				)), 
-			array('controller' => 'labs', 
-				'action' => 'view','plugin'=>''), 
-			array('escape' => false));
+			echo "No images to display.";
 		} ?>
 <?php } ?>

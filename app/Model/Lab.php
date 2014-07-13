@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['VERSION_NUMBER'] = 'v.0.0.8b';
+$GLOBALS['VERSION_NUMBER'] = 'v.0.1.3b';
 
 App::uses('UserMgmtAppModel', 'Usermgmt.Model');
 App::uses('CakeEmail', 'Network/Email');
@@ -179,6 +179,17 @@ function getTownId($id){
 		);	
 		$townId = (!empty($res)) ? ($res['Lab']['town_id']) : '';
 		return $townId;} //end getTownId()
+
+function getStateId($id){
+		//loads the user's town Id based on lab Id
+		$res = $this->find('first', array(
+			'conditions'=>
+				array('Lab.id' => $id),
+			'fields' => array('Lab.state_id')
+			)
+		);	
+		$stateId = (!empty($res)) ? ($res['Lab']['state_id']) : '';
+		return $stateId;} //end getTownId()
 
 
 

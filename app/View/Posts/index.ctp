@@ -1,8 +1,26 @@
 <!-- File: /app/View/Posts/index.ctp -->
 
 
+
+
 <div class="posts">
-    <h1 class="content-subhead">Recent Posts</h1>
+    <h1 class="content-subhead">Recent Posts
+   <?php echo $this->Html->link($this->Html->image('icons/rss.png', 
+                                    array(
+                                        'alt'=> 'rss.png',
+                                        'height'=>'30',
+                                        'width'=>'30')), 
+                                    array('controller' => 'Posts', 
+                                        'action' => 'index', 'ext'=>'rss'), 
+                                    array(
+                                        
+                                        'rel'=>'tooltip',//tooltip init
+                                        'data-placement'=>'bottom', //tooltip placement
+                                        'title'=>'Subscribe to the RSS feed.', //tooltip text
+                                        'escape' => false)); ?>
+
+                                        <?php echo $this->element('sm_footer');?>
+                                        </h1>
 
 
 
@@ -49,15 +67,18 @@
                 <div class="post-content">
                     <?php
                         echo substr($post['Post']['content'], 0, 200);  // abcd 
+                        echo " ";
                     ?>
-                    <div>
-                        <?php
-                        echo $this->Html->link(
-                            'read more...',
-                            array('action' => 'view', $post['Post']['id'])
-                        );
-                    ?>
-                    </div>
+                </div>
+
+                <div>
+                    <?php
+                    echo $this->Html->link(
+                        "read more...",
+                        array('action' => 'view', $post['Post']['id'])
+                    );
+                ?>
+               
                 </div>
             </tr>
 

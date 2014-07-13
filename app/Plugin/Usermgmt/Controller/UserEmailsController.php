@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 class UserEmailsController extends AppController {
 
 /**
@@ -7,7 +8,7 @@ class UserEmailsController extends AppController {
 *
 * @var array
 */
-public $uses = array('Usermgmt.User', 'Usermgmt.UserEmail', 'Usermgmt.UserGroup', 'Usermgmt.UserContact', 'Usermgmt.UserEmailTemplate', 'Usermgmt.UserEmailSignature','Pic','Usermgmt.UserDetail');
+public $uses = array('Usermgmt.User', 'Usermgmt.UserEmail', 'Usermgmt.UserGroup', 'Usermgmt.UserContact', 'Usermgmt.UserEmailTemplate', 'Usermgmt.UserEmailSignature','Pic','Usermgmt.UserDetail', 'Lab');
 
 
 /**
@@ -15,7 +16,7 @@ public $uses = array('Usermgmt.User', 'Usermgmt.UserEmail', 'Usermgmt.UserGroup'
 *
 * @var array
 */
-public $components = array('RequestHandler', 'Usermgmt.Search');
+public $components = array('RequestHandler', 'Usermgmt.Search', 'Session');
 
 
 /**
@@ -110,7 +111,6 @@ $cond = array();
 			$this->render('/Elements/all_emails');
 		}
 }// END INDEX INBOX
-
 
 
 
@@ -252,45 +252,82 @@ $this->request->onlyAllow('post', 'delete');
 public function send($id) {
 
 $userId = $this->UserAuth->getUserId();
-
+$globalLabId = $this->Session->read('globalLabId');
+$globalLabEmail = $this->Session->read('globalLabEmail');
+$globalLabProjectname = $this->Session->read('globalLabProjectname');
 
 /*find the info of the TO user based on their id*/
 $user = $this->User->find('first', array('conditions'=>array('User.id'=>$id), 'contain'=>array('UserDetail')));
 
-/*detarmine the "to_name"*/
+/*determine the "to_name"*/
 $res=$this->User->find('first', array('conditions'=>array('id'=>$id), 'fields'=>array('User.username')));
 $to_name=(!empty($res)) ? ($res['User']['username']) : '';
 
-/*determine the senderName*/
-$res2=$this->User->find('first', array('conditions'=>array('id'=>$userId), 'fields'=>array('User.username')));
-$senderName=(!empty($res2)) ? ($res2['User']['username']) : '';
 
 
-$this->set(compact('senderName', 'to_name'));
+
+if(!empty($globalLabEmail)){
+	$toEmailAddress=$globalLabEmail;
+	} else{
+	$this->Session->setFlash(__('Awe no, this lab is without an email address! Check the listing for contact info.', 'default', array('class' => 'warning')));
+	$this->Session->delete('globalLabEmail');
+	$this->Session->delete('globalLabId');
+	$this->Session->delete('globalLabProjectname');
+	$this->Session->delete('toUser');
+	$this->redirect(array(
+							'controller'=>'Labs', 
+							'action'=>'view', $globalLabId,
+							'plugin'=>''));
+}
 
 
-$lab = $this->Session->read('lab');
+/*determine is sending user is anonymous*/
+ if (!$this->UserAuth->isLogged()) {
+ 	$anon = 1;
+ 	$senderName = "Anonymous Barterlabs User";
+ 	$fromEmailAddress = 'DO_NOT_REPLY@barterlabs.com';
+ 	$this->set(compact('anon', 'senderName'));
+ } else {
+ 	$anon = 0;
+ 	/*determine the senderName*/
+	$res2=$this->User->find('first', array('conditions'=>array('User.id'=>$userId), 'fields'=>array('User.username')));
+	$senderName=(!empty($res2)) ? ($res2['User']['username']) : '';
+ 	$res5 = $this->User->find('first', array('conditions'=>array('User.id'=>$userId), 'fields'=>array('User.email')));
+ 	$fromEmailAddress=(!empty($res5)) ? ($res5['User']['email']) : '';
+ 	$this->set(compact('anon', 'senderName'));
+ }
 
-	if(!empty($lab)){
-		$subject = "Enquirey regarding Trade #".$lab['Lab']['id'].", ".$lab['Lab']['projectname'];} else {$subject = "A Barterlabs message from ".$senderName;
+$this->set(compact('to_name'));
+
+	if(!empty($globalLabId)){
+		$subject = "Inquiry regarding Trade #".$globalLabId.", ".$globalLabProjectname;} else {$subject = "A Barterlabs message from ".$senderName;
 		}
-
-
 
 	$this->set('subject', $subject);
 
-
 	if ($this->request->isPost()) {
+			$Email = new CakeEmail();
+			$Email->from(array('trades@barterlabs.com' => $fromEmailAddress));
+			$Email->to(array($toEmailAddress=>$toEmailAddress));
+			$Email->subject($subject);
+			$message = $this->request->data['UserEmail']['message'];
+			$Email->send($message);
+
+
 		$this->UserEmail->create();
 		$this->request->data['UserEmail']['from_id'] = $userId;
 		$this->request->data['UserEmail']['to_id'] = $id;
 		$this->request->data['UserEmail']['is_email_sent'] = 1;
 		$this->UserEmail->set($this->request->data);
 		$this->UserEmail->save($this->request->data);
+			
+
 		$this->Session->setFlash(__('This email has been sent.'));
-		$this->Session->delete('lab');
+		$this->Session->delete('globalLabEmail');
+		$this->Session->delete('globalLabId');
+		$this->Session->delete('globalLabProjectname');
 		$this->Session->delete('toUser');
-		$this->redirect(array('controller'=>'Users', 'action'=>'myprofile','plugin'=>'usermgmt'));
+		$this->redirect(array('controller'=>'Labs', 'action'=>'index','plugin'=>''));
 		} else {$this->Session->delete('lab');
 		 	 	$this->Session->delete('toUser');}
 }

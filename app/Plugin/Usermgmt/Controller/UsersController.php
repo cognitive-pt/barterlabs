@@ -17,7 +17,7 @@ class UsersController extends UserMgmtAppController {
 
 
 
-	public $uses = array('Usermgmt.User', 'Usermgmt.UserGroup', 'Usermgmt.UserSetting', 'Usermgmt.TmpEmail', 'Usermgmt.UserDetail', 'Usermgmt.UserActivity', 'Usermgmt.LoginToken', 'Usermgmt.UserGroupPermission', 'Usermgmt.UserContact', 'Tradeicon', 'Usermgmt.UserEmail', 'State', 'Lab', 'Vote', 'Town', 'Pic');
+	public $uses = array('Usermgmt.User', 'Usermgmt.UserGroup', 'Usermgmt.UserSetting', 'Usermgmt.TmpEmail', 'Usermgmt.UserDetail', 'Usermgmt.UserActivity', 'Usermgmt.LoginToken', 'Usermgmt.UserGroupPermission', 'Usermgmt.UserContact', 'Tradeicon', 'Usermgmt.UserEmail', 'Lab', 'Vote', 'Town', 'Pic');
 
 
 
@@ -34,13 +34,9 @@ class UsersController extends UserMgmtAppController {
 
 
 	/**
-
 	 * This controller uses following default pagination values
-
 	 *
-
 	 * @var array
-
 	 */
 
 
@@ -58,13 +54,9 @@ class UsersController extends UserMgmtAppController {
 
 
 	/**
-
 	 * This controller uses following helpers
-
 	 *
-
 	 * @var array
-
 	 */
 
 
@@ -74,13 +66,9 @@ class UsersController extends UserMgmtAppController {
 
 
 	/**
-
 	 * This controller uses search filters in following functions for ex index, online function
-
 	 *
-
 	 * @var array
-
 	 */
 
 
@@ -358,15 +346,10 @@ class UsersController extends UserMgmtAppController {
 
 
 	/**
-
 	 * Called before the controller action.  You can use this method to configure and customize components
-
 	 * or perform logic that needs to happen before each controller action.
-
 	 *
-
 	 * @return void
-
 	 */
 
 
@@ -412,99 +395,30 @@ class UsersController extends UserMgmtAppController {
 
 
 		$checkEmail = $this->UserEmail->checkEmail($userId);
-
-
-
 		$this->set('checkEmail', $checkEmail);
-
-
-
 							/**** END USER EMAIL CHECK ****/
-
-
-
-		
-
-
-
-	
-
-
-
 	}
 
 
 
-	
-
-
-
-	
-
-
-
-	
-
-
-
-	
-
-
-
-	
-
-
 
 	/**
-
 	 * It displays all users details
-
 	 *
-
 	 * @access public
-
 	 * @return array
-
 	 */
-
-
 
 	public function index() {
 
-
-
 		$this->paginate = array('limit' => 10, 'order'=>'User.id desc');
-
-
-
 		$users = $this->paginate('User');
-
-
-
 		$i=0;
-
-
-
 		foreach($users as $user) {
-
-
-
 			$users[$i]['UserGroup']['name']=$this->UserGroup->getGroupsByIds($user['User']['user_group_id']);
-
-
-
 			$i++;
-
-
-
 		}
-
-
-
 		$this->set('users', $users);
-
-
-
 		if($this->RequestHandler->isAjax()) {
 
 
@@ -675,36 +589,14 @@ class UsersController extends UserMgmtAppController {
 
 	public function online() {
 
-
-
-		$this->paginate = array('limit' => 10, 'order'=>'UserActivity.modified desc', 'conditions'=>array('UserActivity.modified >'=>(date('Y-m-d G:i:s', strtotime('-'.VIEW_ONLINE_USER_TIME.' minutes', time()))), 'UserActivity.logout'=>0), 'fields'=>array('UserActivity.*', 'User.username', 'User.email'), 'contain'=>array('User'));
-
-
-
+		$this->paginate = array('limit' => 1000, 'order'=>'UserActivity.modified desc', 'conditions'=>array('UserActivity.modified >'=>(date('Y-m-d G:i:s', strtotime('-5000 minutes', time()))), 'UserActivity.logout'=>0), 'fields'=>array('UserActivity.*', 'User.username', 'User.email'), 'contain'=>array('User'));
 		$users = $this->paginate('UserActivity');
-
-
-
 		$this->set('users', $users);
 
-
-
 		if($this->RequestHandler->isAjax()) {
-
-
-
 			$this->layout = 'ajax';
-
-
-
 			$this->render('/Elements/online_users');
-
-
-
 		}
-
-
-
 	}
 
 
@@ -749,6 +641,8 @@ class UsersController extends UserMgmtAppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 
+	//these delete session data from the UsersEmail class
+
 		$this->layout = 'default';
 
 		$userId = $this->UserAuth->getUserId();
@@ -761,12 +655,10 @@ class UsersController extends UserMgmtAppController {
 
 		$this->set('user', $this->User->getUserById($id));
 
-		$state_id = $this->UserDetail->getStateId($userId);
-		$state = $this->State->getStateName($state_id);
-		$this->set(compact('state'));
-
-
-
+		$email = $this->User->getEmailById($id);
+		$this->Session->write('globalLabEmail', $email);
+		$this->Session->delete('globalLabId');
+		$this->Session->delete('globalLabProjectname');
 
 
 		//************************VOTES**************************//	
@@ -901,9 +793,8 @@ class UsersController extends UserMgmtAppController {
 		$user['UserGroup']['name']=$this->UserGroup->getGroupsByIds($user['User']['user_group_id']);
 
 
-		$state_id = $this->UserDetail->getStateId($userId);
-		$state = $this->State->getStateName($state_id);
-		$this->set(compact('user','state'));
+
+		$this->set(compact('user','userId'));
 
 
 
@@ -1102,22 +993,6 @@ class UsersController extends UserMgmtAppController {
 
 
 
-		
-
-
-
-		$states = $this->UserDetail->State->find('list');
-
-
-
-		$this->set(compact('states'));
-
-
-
-		
-
-
-
 		$editProfileModal = $this->Session->read('editProfileModal');
 
 
@@ -1265,87 +1140,6 @@ class UsersController extends UserMgmtAppController {
 
 
 						
-
-
-
-						/* BACKGROUND PHOTO LOGIC*/
-
-
-
-						if(is_uploaded_file($this->request->data['UserDetail']['bgphoto']['tmp_name']) && !empty($this->request->data['UserDetail']['bgphoto']['tmp_name']))
-
-
-
-						{
-
-
-
-							$path_info = pathinfo($this->request->data['UserDetail']['bgphoto']['name']);
-
-
-
-							chmod ($this->request->data['UserDetail']['bgphoto']['tmp_name'], 0644);
-
-
-
-							$photo=time().mt_rand().".".$path_info['extension'];
-
-
-
-							$fullpath= WWW_ROOT."img".DS.IMG_DIR;
-
-
-
-							if(!is_dir($fullpath)) {
-
-
-
-								mkdir($fullpath, 0777, true);
-
-
-
-							}
-
-
-
-							move_uploaded_file($this->request->data['UserDetail']['bgphoto']['tmp_name'],$fullpath.DS.$photo);
-
-
-
-							$this->request->data['UserDetail']['bgphoto']=$photo;
-
-
-
-							if(!empty($user['UserDetail']['bgphoto']) && file_exists($fullpath.DS.$user['UserDetail']['bgphoto'])) {
-
-
-
-								unlink($fullpath.DS.$user['UserDetail']['bgphoto']);
-
-
-
-							}
-
-
-
-						}
-
-
-
-						else {
-
-
-
-							unset($this->request->data['UserDetail']['bgphoto']);
-
-
-
-						}
-
-
-
-						/* END OF BACKGROUND PHOTO LOGIC */
-
 
 
 		
@@ -6627,7 +6421,7 @@ class UsersController extends UserMgmtAppController {
 
 
 
-				$this->Session->setFlash(__('Sorry something went wrong, please click on the link again'), 'default', array('class' => 'error'));
+				$this->Session->setFlash(__('Sorry something went wrong, please tap on the link again'), 'default', array('class' => 'error'));
 
 
 
@@ -6639,7 +6433,7 @@ class UsersController extends UserMgmtAppController {
 
 
 
-			$this->Session->setFlash(__('Sorry something went wrong, please click on the link again'), 'default', array('class' => 'error'));
+			$this->Session->setFlash(__('Sorry something went wrong, please tap on the link again'), 'default', array('class' => 'error'));
 
 
 
@@ -7009,7 +6803,7 @@ class UsersController extends UserMgmtAppController {
 
 
 
-						$this->Session->setFlash(__('Something went wrong, please click again on the link in email'), 'default', array('class' => 'error'));
+						$this->Session->setFlash(__('Something went wrong, please tap again on the link in email'), 'default', array('class' => 'error'));
 
 
 
@@ -7025,7 +6819,7 @@ class UsersController extends UserMgmtAppController {
 
 
 
-				$this->Session->setFlash(__('Something went wrong, please click again on the link in email'), 'default', array('class' => 'error'));
+				$this->Session->setFlash(__('Something went wrong, please tap again on the link in email'), 'default', array('class' => 'error'));
 
 
 

@@ -1,5 +1,8 @@
 <!--  NAVBAR - This is the navbar that appears at the top when a guest uses the site  -->
 
+
+<!-- This dashboard is depricated. Last version v.0.1.2b -->
+
 <div class="login-page-container">
 	<div class="dashboard-menu">
 		<div class="navbar">

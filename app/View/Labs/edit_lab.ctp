@@ -48,7 +48,7 @@
 			</div>
        
        <div class="um-form-row control-group">
-			<label class="control-label required"><?php echo __('External Link');?></label>
+			<label class="control-label"><?php echo __('External Link');?></label>
 			<div class="controls">
             	<?php echo $this->Form->input('link', array('label'=>false, 'div'=>false, 'class'=>'span5')); ?>
         </div>

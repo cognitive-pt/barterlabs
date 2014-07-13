@@ -23,7 +23,8 @@
 		<?php 
 			echo $this->Html->link($this->Html->image('icons/glyphicon_downvote.png', 
 				array(
-					'alt'=> 'glyphicon_downvote.png')), 
+					'alt'=> 'glyphicon_downvote.png',
+						)), 
 				array('action' => 'downVote', $lab['Lab']['id']), 
 				array(
 					'rel'=>'tooltip',//tooltip init

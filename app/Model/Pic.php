@@ -4,7 +4,7 @@ App::uses('UserMgmtAppModel', 'Usermgmt.Model');
 App::uses('Lab','Model');
 class Pic extends AppModel {
 	
-var $belongsTo = array('Lab');	
+var $belongsTo = array('Lab','Post');	
 public $actsAs = array('Search.Searchable');
 	
 	public $validate = array(
@@ -26,6 +26,16 @@ public $actsAs = array('Search.Searchable');
 		);
 	return $labPics;}//end getLabPics()
 				
+
+
+	public function getPostPics($id){
+	$postPics = $this->find('all', array(
+			'conditions' => array('Pic.post_id' => $id)
+			)
+		);
+	return $postPics;}//end getPostPics()		
+							
+
 							
 	public function nullOldDisPic($id) {
 		//this function finds the old Display Picture

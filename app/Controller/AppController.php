@@ -19,7 +19,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('Controller', 'Controller');
-
+App::import('Vendor', 'ImageTool');
 /**
  * Application Controller
  *
@@ -30,7 +30,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {	
-	
+
 	var $helpers = array('Form', 'Html', 'Session',	'Js', 'Usermgmt.UserAuth', 'Usermgmt.Image');
 	public $components = array('Session', 'RequestHandler', 'Usermgmt.UserAuth','DebugKit.Toolbar');
 

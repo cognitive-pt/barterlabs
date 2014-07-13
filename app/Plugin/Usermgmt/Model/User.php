@@ -863,7 +863,7 @@ class User extends UserMgmtAppModel {
 
 		$link = Router::url("/userVerification?ident=$userId&activate=$activate_key",true);
 
-		$body=__('Hey %s, <br/><br/>You recently entered a contact email address.  To confirm your contact email, follow the link below: <br/><br/>%s<br/><br/>If clicking on the link doesn\'t work, try copying and pasting it into your browser.<br/><br/>Thanks,<br/>%s', $user['User']['username'], $link, SITE_NAME);
+		$body=__('Hey %s, <br/><br/>You recently entered a contact email address.  To confirm your contact email, follow the link below: <br/><br/>%s<br/><br/>If tapping on the link doesn\'t work, try copying and pasting it into your browser.<br/><br/>Thanks,<br/>%s', $user['User']['username'], $link, SITE_NAME);
 
 		try{
 
@@ -997,7 +997,7 @@ class User extends UserMgmtAppModel {
 
 		$link = Router::url("/activatePassword?ident=$userId&activate=$activate_key",true);
 
-		$body=__('Welcome %s,<br/><br/>You have requested to have your password reset on %s. Please click the link below to reset your password now: <br/><br/>%s<br/><br/>If clicking on the link doesn\'t work, try copying and pasting it into your browser.<br/><br/>Thanks,<br/>%s', $user['User']['username'], SITE_NAME, $link, SITE_NAME);
+		$body=__('Welcome %s,<br/><br/>You have requested to have your password reset on %s. Please tap the link below to reset your password now: <br/><br/>%s<br/><br/>If tap on the link doesn\'t work, try copying and pasting it into your browser.<br/><br/>Thanks,<br/>%s', $user['User']['username'], SITE_NAME, $link, SITE_NAME);
 
 		try{
 
@@ -1282,17 +1282,11 @@ class User extends UserMgmtAppModel {
 	
 
 	/**
-
 	 * Used to get email by user id
-
 	 *
-
 	 * @access public
-
 	 * @param integer $userId user id
-
 	 * @return string
-
 	 */
 
 	public function getEmailById($userId) {
@@ -1306,18 +1300,30 @@ class User extends UserMgmtAppModel {
 	}
 
 	/**
-
 	 * Used to get user by user id
-
 	 *
-
 	 * @access public
-
 	 * @param integer $userId user id
-
 	 * @return string
-
 	 */
+
+function getGUID(){
+    if (function_exists('com_create_guid')){
+        return com_create_guid();
+		    }else{
+		        mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
+		        $charid = strtoupper(md5(uniqid(rand(), true)));
+		        $hyphen = chr(45);// "-"
+		        $uuid = 
+		            substr($charid, 0, 8).$hyphen
+		            .substr($charid, 8, 4).$hyphen
+		            .substr($charid,12, 4).$hyphen
+		            .substr($charid,16, 4).$hyphen
+		            .substr($charid,20,12);
+		        return $uuid;
+		    }
+}
+
 
 	public function getUserById($userId) {
 
@@ -1332,23 +1338,13 @@ class User extends UserMgmtAppModel {
 
 
 function getViewedUserId($id){
-
 		$res = $this->find('first', array(
-
 			'conditions' => array('User.id' => $id),
-
 			'fields' => array('User.id'),
-
 			)
-
 		); 
-
 		$viewedUserId = (!empty($res)) ? ($res['User']['id']) : '';
-
 		return $viewedUserId;} //end getViewedUserId();
-
-
-
 
 
 
@@ -1534,17 +1530,11 @@ function getViewedUserId($id){
 	}
 
 	/**
-
 	 * Used to get user by fb_id
-
 	 *
-
 	 * @access public
-
 	 * @param string $fb_id user fb_id
-
 	 * @return string
-
 	 */
 
 	public function findByFbId($fb_id) {
@@ -1556,17 +1546,11 @@ function getViewedUserId($id){
 	}
 
 	/**
-
 	 * Used to get user by twt_id
-
 	 *
-
 	 * @access public
-
 	 * @param string $twt_id user twt_id
-
 	 * @return string
-
 	 */
 
 	public function findByTwtId($twt_id) {
@@ -1578,17 +1562,11 @@ function getViewedUserId($id){
 	}
 
 	/**
-
 	 * Used to get user by ldn_id
-
 	 *
-
 	 * @access public
-
 	 * @param string $ldn_id user ldn_id
-
 	 * @return string
-
 	 */
 
 	public function findByLdnId($ldn_id) {
@@ -1600,9 +1578,6 @@ function getViewedUserId($id){
 	}
 
 	
-
-	
-
 
 
 	

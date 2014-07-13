@@ -4,7 +4,7 @@ App::uses('CakeEmail', 'Network/Email');
 class State extends AppModel {
 	
 	
-var $hasMany = array('Usermgmt.UserDetail','Lab');
+var $hasMany = array('Lab');
 public $actsAs = array('Search.Searchable');	
 
 		//this function returns the name of state with the $stateId

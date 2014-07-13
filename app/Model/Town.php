@@ -48,23 +48,27 @@ public $validate = array(
 					),
 				);
 
-
-
-
 	public function getAllTowns($stateName){
 		$towns = $this->Lab->Town->find('list', array('conditions' =>array('Town.state'=>$stateName), 'order'=>array('Town.name', 'Town.name ASC'),'fields'=> array('Town.name')));
 		return $towns;
 	} //end of getAllTowns()
 
 
+	public function getTownsByStateId($state_id){
+		$towns = $this->Lab->Town->find('list', array('conditions' =>array('Town.state'=>$stateName), 'order'=>array('Town.name', 'Town.name ASC'),'fields'=> array('Town.name')));
+		return $towns;
+	} //end of getAllTowns()
+
+
 	public function getTownName($townId){
-		$townName = $this->find('first', array(
+		$res = $this->find('first', array(
 			'conditions' => 
 				array('Town.id' => $townId),
 			'fields' => 
 				array('Town.name')
 				)
 			);
+		$townName = (!empty($res)) ? ($res['Town']['name']) : '';	
 		return $townName;
 } //end getTownName()
 

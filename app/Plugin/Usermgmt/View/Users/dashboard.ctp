@@ -34,7 +34,7 @@
 					<strong>
 						<?php echo "Your User Settings";?>
                     </strong>
-                        <div class="um-button-row"> <!--this draws the horizontal line 
+                        <div class="um-button-row" style="margin-bottom:0px;padding-bottom:0px;"> <!--this draws the horizontal line 
             											between dashboard groups-->
                         </div>
 					<?php }	?>
@@ -87,10 +87,11 @@
 
 							<!--START "BETA TEST" GROUP-->
 			<?php if($this->UserAuth->HP('Users', 'myprofile')) {?>
+				<div style="margin-top:25px;">
                 <strong>
 					<?php echo "Beta Test Menu - Barterlabs ".$VERSION_NUMBER;?>
                 </strong>
-                			<div class="um-button-row"><!--this draws the horizontal line 
+                			<div class="um-button-row" style="margin-bottom:0px;padding-bottom:0px;"><!--this draws the horizontal line 
             											between dashboard groups-->
                        		</div>
 					<?php }?>
@@ -107,12 +108,7 @@
 			} ?>
 		</div>
     
-        <div class="btn-group">
-            <?php if($this->UserAuth->HP('Users', 'myprofile')) {
-				echo $this->Html->link(__('Donate'), array('#'), array('class'=>'btn btn-primary-skagitorange'));
-			} ?>
-        </div>
-    <br />
+            <br />
 							<!--END "BETA TEST" GROUP-->
 
 
@@ -134,7 +130,21 @@
 			} ?>
 		</div>
 
-			<br />
+		<div class="btn-group">
+			<?php if($this->UserAuth->HP('UserSettings', 'analytics')) {
+				echo $this->Html->link(__('Analytics'), array('controller'=>'UserSettings', 'action'=>'analytics', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-skagitorange'));
+			} ?>
+		</div>
+
+		<div class="btn-group">
+			<?php if($this->UserAuth->HP('Users', 'online')) {
+				echo $this->Html->link(__('Online Users'), array('controller'=>'Users', 'action'=>'online', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-lightred '));
+			} ?> 
+		</div>
+
+		<br/>
+
+			
 
 		       <div class="btn-group">
             			<?php if($this->UserAuth->HP('UserContacts', 'index')) {
@@ -158,16 +168,9 @@
 				echo $this->Html->link(__('All Pages'), array('controller'=>'Contents', 'action'=>'index', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-dandelion'));
 			} ?>
         </div>
+       
             
-        <div class="btn-group">    
-          <?php if($this->UserAuth->HP('UserContacts', 'index')) {
-			  echo $this->Html->link(__('Contact Us Emails'), array('controller'=>'UserContacts', 'action'=>'index', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-skagitorange'));
-							} ?>
-
-
-        </div>
-            
-            
+         <br />
 
         <div class="btn-group">
             <?php if($this->UserAuth->HP('Towns', 'index')) {
@@ -178,7 +181,7 @@
 			} ?>
         </div>    
         
-            
+        <br />    
 
 		<div class="btn-group">            
             <?php if($this->UserAuth->HP('Types', 'index')) {
@@ -205,9 +208,6 @@
 			<?php if($this->UserAuth->HP('Users', 'index')) {
 				echo $this->Html->link(__('All Users'), array('controller'=>'Users', 'action'=>'index', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-mtrench'));
 			} ?>
-			<?php if($this->UserAuth->HP('Users', 'online')) {
-				echo $this->Html->link(__('Online Users'), array('controller'=>'Users', 'action'=>'online', 'plugin'=>'usermgmt'), array('class'=>'btn btn-primary-lightred '));
-			} ?> 
     	</div>
 
 

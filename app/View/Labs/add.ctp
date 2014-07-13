@@ -1,4 +1,4 @@
-			<div class="um-panel">
+<div class="um-panel">
 	<div class="um-panel-header">
 		<span class="um-panel-title">
 			<?php echo __('Add a new lab') ?>
@@ -12,8 +12,6 @@
     
     
 		<div class="um-panel-content">
-		<?php echo $this->element('Usermgmt.ajax_validation', array('formId' => 'editProfileForm', 'submitButtonId' => 'editProfileSubmitBtn')); ?>
-
 		<?php echo $this->Form->create('Lab', array('type' => 'file', 'id'=>'editLabForm', 'class'=>'form-horizontal')); ?>
 
 
@@ -56,7 +54,7 @@
           
    
 			<div class="controls" style="padding-bottom:20px;">
-				<p><?php echo $this->Form->Submit('Save', array('class'=>'pure-button button-success', 'id'=>'addIconSubmitBtn')); ?>
+				<p><?php echo $this->Form->Submit('Save', array('class'=>'pure-button button-success', 'id'=>'addIconSubmitBtn')); ?></p>
 			</div>
          </div>            
 

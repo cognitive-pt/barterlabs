@@ -1,80 +1,44 @@
-<?php echo $this->Html->script(array('/usermgmt/js/umupdate.js?q='.QRDN)); ?>
+	
+	<?php if ($userId==$viewedUser['User']['id']){	?>	
 
+		<div class = "labs-header-editdelete"><?php echo "( This is your profile!! Feel free to ";
 
-<div class="um-panel">
-	<div class="um-panel-header">
-		<span class="um-panel-title">
-			<?php echo h($viewedUser['User']['username'])?>
-		</span>
-
-		<span class="um-panel-title-right">
-	        <?php if ($viewedUser['User']['id']!=$userId){
-	 			echo $this->Html->link(__('Contact'),
-					array('controller' => 'UserEmails', 
-						  'action' => 'send', 
-						  $user['User']['id'], 
-						  'plugin'=>'usermgmt'),
-				 	array('class'=>'btn', 
-				 	      'id'=>'contact'));} ?>
-		</span>
-	</div>
-
-    
-	<div class="um-panel-content" style="background-image: url('<?php echo $this->Image->resize('img/'.IMG_DIR, $viewedUser['UserDetail']['bgphoto'], 800, null, true) ?>');">
-    
-    
-  	
-		<div class="u-row"> 
-			<div class="lab-panel-content">
-
-
-
-				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
-           			<div class="tradeinfo">
-						<?php echo __($user['User']['username']);?>         
-                    		
-                    		<div class="tradenameinfo">
-									<?php echo __($user['UserDetail']['tradename']);?>
-                   		 	</div>
-
-        						<tbody>
-										<tr> 
-											<td><?php echo "LabLevel: "?></td>
-            					        	<td><?php echo $this->element('votecounter');?></td>
-            					        </tr>
-            					        
-            					        <tr> 
-											<td><?php echo "Location: "?></td>
-            					        	<td><?php echo $state;?></td>
-            					        </tr>
-            					        
-            					        <tr>
-											<td><strong><?php echo __('Member Since:');?></strong></td>
-											<td><?php echo $this->Time->format(
-  												'F jS, Y ',
-  												$user['User']['created']); ?></td>
-										</tr>
- 								</tbody>
-       			</table>		
-			</div>
+						echo $this->Html->link(__('Add a Barter', true), '/labs/add');
+							echo (' / ');
+		 				echo $this->Html->link(__('Edit Your Profile'), array('controller'=>'Users', 'action' => 'editProfile', $user['User']['id'],'plugin'=>'usermgmt'))." )";?>
 		</div>
+	<?php }?>
 
 
 
-        
-				<?php if (!empty($user)) { ?>
-					<div class="right" style="height:100%; margin:5px">
-						<div class="profile">
-							<img alt="<?php echo h($user['User']['username']); ?>" src="<?php echo $this->Image->resize('img/'.IMG_DIR, $user['UserDetail']['photo'], 250, null, true) ?>">
-						</div>
-					</div>
-				<?php } ?>
+
+
+
+	<div style = "margin-left: 25px;">
+		<h2><?php echo "You are viewing ".$viewedUser['User']['username']."'s profile page. "?></h2>
+			<div style = "margin-top: -25px; margin-bottom: 25px;">
+				<?php echo "From here you can see everything ".$viewedUser['User']['username']." has to trade and other general info.";?> 
 			</div>
-    
-    
-           
+	</div>	
 
-		<?php echo $this->element('viewedUserLabs');?>
 
+	<div>
+		<?php echo $this->element('userDeskContact');?>
 	</div>
+
+
+	<div class="userDeskPhoto">
+		<?php echo $this->element('userDeskPhoto');?>
+	</div>
+	
+	<div class="userDeskDetail"> 
+	 	<?php echo $this->element('userDeskDetail');?>
+	</div>
+ 		
+
 </div>
+	
+
+	<div class="viewedUserLabs">
+ 		<?php echo $this->element('viewedUserLabs');?>
+ 	</div>	

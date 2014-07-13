@@ -42,19 +42,18 @@
 					echo "<td>".$row['Lab']['id']."</td>";
 					echo "<td>".$row['Lab']['projectname']."</td>";
 					
-					if ($row['Lab']['catalyst']==1) {
-						
-						echo "<td><div class=\"labstatus1\">".('ACTIVE')."</td></div>";
-					} else {
-						echo "<td><div class=\"labstatusnull\">".('INACTIVE')."</td></div>";
+					if ($row['Lab']['catalyst']==1) {	
+						echo "<td><div class=\"labstatus1\">".('ACTIVE!')."</td></div>";
+					} elseif ($row['Lab']['catalyst']==0) {
+						echo "<td><div class=\"labstatusnull\">".('INACTIVE!')."</td></div>";
+					} elseif ($row['Lab']['catalyst']==2) {
+						echo "<td><div class=\"labstatus1\">".('TRADED!')."</td></div>";
+					} elseif ($row['Lab']['catalyst']==3) {
+						echo "<td><div class=\"labstatusnull\">".('EXPIRED!')."</td></div>";
 					}
 					echo "<td>".h($row['Lab']['created'])."</td>";
-					
 					$loadingImg = '<img src="'.SITE_URL.'usermgmt/img/loading-circle.gif">';
 					echo "<td>";?>
-
-
-
 
 					<ul class="nav-all-labs nav-pills">  <!--  this CSS is contained in pure-bl.css   -->
 					<li class='dropdown' style="list-style-type: none;">
@@ -75,11 +74,17 @@
 
 							echo "<li>".$this->Html->link(__('Edit'), array('controller'=>'Labs', 'action'=>'editLab', $row['Lab']['id']), array('escape'=>false))."</li>";
 
-							
-							if ($row['Lab']['catalyst']==1) {
 								echo "<li>".$this->Form->postLink(__('Deactivate'), array('action' => 'deactivateLab', $row['Lab']['id']), null, __('Are you sure you want deactivate %s?', $row['Lab']['projectname']))."</li>";} 
-								else {echo "<li>".$this->Form->postLink(__('Activate'), array('action' => 'activateLab', $row['Lab']['id']), null, __('Are you sure you want activate %s?', $row['Lab']['projectname']))."</li>";}
-							echo "<li>".$this->Form->postLink(__('Delete'), array('action' => 'deleteLab', $row['Lab']['id']), null, __('Are you sure you want to delete %s?', $row['Lab']['projectname']))."</li>";
+							elseif ($row['Lab']['catalyst']==0) {
+								echo "<li>".$this->Form->postLink(__('Activate'), array('action' => 'activateLab', $row['Lab']['id']), null, __('Are you sure you want activate %s?', $row['Lab']['projectname']))."</li>";}
+							elseif ($row['Lab']['catalyst']==3) {
+								echo "<li>".$this->Form->postLink(__('Renew'), array('action' => 'activateLab', $row['Lab']['id']), null, __('Are you sure you want activate %s?', $row['Lab']['projectname']))."</li>";}
+							if ($row['Lab']['catalyst']==2) {
+								echo "<li>".$this->Form->postLink(__('Re-activate'), array('action' => 'activateLab', $row['Lab']['id']), null, __('Are you sure you want activate %s?', $row['Lab']['projectname']))."</li>";}
+								else {echo "<li>".$this->Form->postLink(__('Set to TRADED!'), array('action' => 'setTradedLab', $row['Lab']['id']), null, __('Are you sure you want activate %s?', $row['Lab']['projectname']))."</li>";}
+
+
+								echo "<li>".$this->Form->postLink(__('Delete'), array('action' => 'deleteLab', $row['Lab']['id']), null, __('Are you sure you want to delete %s?', $row['Lab']['projectname']))."</li>";
 							
 							
 							

@@ -25,31 +25,6 @@ background-color: #00FF00;
 
 body { padding-top: 70px; }
 
-
-
-
-
-.dashboard-menu .navbar .nav > li > a {
-	padding: 5px 10px;
-
-}
-.dashboard-menu .navbar .nav > li > a:focus, .dashboard-menu .navbar .nav > li > a:hover {
-	background-color: #33FF00;
-}
-
-
-
-.dashboard-menu .navbar .nav > li > a:visited, .dashboard-menu .navbar .nav > li > a:visited {
-	background-color: #33FF00;
-}
-
-
-
-.dashboard-menu .navbar-inner select {
-  display: none;
-  margin: 10px 0px;
-  
-  
 }
 
 .guest-words{
@@ -362,9 +337,7 @@ max-width:350px;
 
 .login-logo-subheading {
 	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 10px;
-	text-align: center;
+	margin-right: 0px;	 
 	letter-spacing:4px;
 
 }
@@ -1059,8 +1032,7 @@ font-weight: bold;
 	width: auto;
 	clear: both;
 	height: auto;
-	margin-bottom: 100px;	
-	margin-top: 50px;
+
 }
 
 
@@ -1229,11 +1201,16 @@ div.tradeinfo a {
 }
 
 
+.scoreboard{
+	color: #000000;
+	opacity: 0.7;
+}
+
 .tradeinfo {
-	
+	display: block;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 20px;
-	color: #000000;	
+	color: #FFFFFF;	
 	}
 	
 .infotrade {
@@ -1244,7 +1221,7 @@ div.tradeinfo a {
 .tradenameinfo {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 18px;
-	color: #000000;	
+	color: #FFFFFF;	
 	opacity: 0.7;
 	padding-bottom: 5px;
 	}

@@ -4,9 +4,7 @@ $logo = 'logo.jpg';
 ?>
 
 
-<?php
-//this is the drop-down navbar dashboard
-?>
+
 
 <?php
 $contName = Inflector::camelize($this->params['controller']);

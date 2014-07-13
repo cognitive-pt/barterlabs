@@ -1,6 +1,39 @@
 /* this is the barterlabs extension of pure-min.css */
 
 
+@media (max-width: 491px) {
+
+    .bl-login-dash {
+        margin-left: 5px;    
+    }
+
+    .make-this-disappear{
+        display: none;
+    }
+
+    .bl-login-dosh {
+        margin-left: 5px;    
+    }
+
+
+
+}
+
+
+/******************/
+/*  up to 767px  */
+/******************/
+@media (max-width: 767px) {
+
+}
+
+
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+
 
 .button-success,
         .button-error,
@@ -61,20 +94,29 @@
 
 .labDispPicViewElement{
     border:1px solid #5C5C3D;
-    padding: 5px;
+    padding: 0px;
     display: inline-block;
     width: auto;
     height: auto;
     max-width: 500px; 
-    max-height: 500px; 
+    max-height: auto; 
     margin-left: 25px;
     margin-top: 15px;
+    margin-right: 15px;
+}
+
+.labDispPicViewElementPics {
+   
+    padding: 0px;
+    display: inline-block;
+
 }
 
 
-.labDescElement {
-
-margin:25px;
+.labDescView{
+    display: block;
+    padding-right: 25px;
+    padding-left: 20px;
 }
 
 .voteArrowsElement {
@@ -90,5 +132,466 @@ margin: 25px;
 }
 
 .labDetailTableElement{
-    display: inline; 
+    display: inline-block; 
 }
+
+.barter_blog_search_link1{
+display: inline-block;
+}
+
+.barter_blog_search_b{
+color: #B3B3D4;
+display: inline-block;
+font-weight: bold;
+font-size: 45px;
+}
+
+.barter_blog_search_x{
+display: inline-block;
+color: #000000;
+font-weight: bold;
+font-size: 18px;
+}
+
+.barter_blog_search_subheading{
+    display: block;
+    text-align: center;
+    letter-spacing:2px;
+    max-width: 400px;
+    font-size: 12px;
+}
+
+
+.barter_blog_search_new{
+display: block;
+margin-top: 55px;
+font-style: italic;
+padding-bottom: 10px;
+font-weight: bold;
+color: #E6E600;
+}
+
+.labs-header-editdelete {
+margin-left: 100px;
+margin-bottom: 25px;
+}
+
+.labs-header-title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 5%;
+
+}
+
+.user-header-title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 25px;
+
+}
+
+.labs-header-engage {
+    margin-left: 25px;
+    margin-top: 10px;
+    display: block;
+    
+}
+
+.morebarters a{
+color: #000000;
+}
+
+.vote-arrows-chart {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+
+.userDeskPhoto {
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.userDeskDetail {
+    margin-left: 10px;
+}
+
+.viewedUserLabs{
+    margin-left: 25px;
+    display: inline-block !important;
+    margin-right: 25px
+}
+
+.new-inline{
+    display: inline-block;
+}
+
+.new-block{
+    display: block;
+}
+
+.no-pics-now{
+    color: #535340;
+    margin-left:50px;
+}
+
+.button-secondary{
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(66, 184, 221);
+}
+
+.bl-login-dash {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.bl-login-dosh {
+        margin-left: 25px;    
+    }
+
+
+
+.nav-pills {
+    margin: 0px !important;
+    padding: 0px !important;   
+}
+
+.bl-dash-btn-group{
+    margin-top: -15px;
+}
+
+.createLabContainer{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/************************/
+/*         FAQ          */
+/************************/
+/*Add some spacing*/
+.faq-section{
+    margin: 40px;
+        position: relative;
+}
+
+/*Hide the paragraphs*/
+.faq-section p{
+    display: none;
+}   
+
+/*Hide the checkboxes */
+.faq-section input{
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;         
+    display: none\9; /* IE8 and below */
+    margin: 0;          
+    width: 100%;
+    height: 36px;
+}
+
+/*Show only the clipped intro */
+.faq-section label+p{
+    display: block; 
+    color: #999;
+    font-size: .90em;
+    transition: all .15s ease-out;
+    /* Clipping text */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;    
+    word-wrap: break-word;
+    padding: 0px 5px 0px 20px;                   
+}
+
+/*If the checkbox is checked, show all paragraphs*/
+.faq-section input[type=checkbox]:checked~p{
+    display: block;
+    color: #444;
+    font-size: 1em;
+    /* restore clipping defaults */
+    text-overflow: clip; 
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;  
+    padding: 0px 16px 0px 20px;
+}
+
+/*Style the label*/
+.faq-section label{
+    font-size: 1.2em;
+    background: #eee;
+    display: block;
+    position: relative;
+        height: 20px;
+    padding: 7px 16px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    border-left: 3px solid #888;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    transition: all .15s ease-out;    
+    height: auto;      
+}
+
+/*Remove text selection when toggle-ing*/
+.faq-section label::selection{
+    background: none;
+}
+
+.faq-section label:hover{
+    background: #f5f5f5;
+}
+
+/*If the checkbox is checked, style the label accordingly*/
+.faq-section input[type=checkbox]:checked~label{
+    border-color: #ff7f50;          
+    background: #f5deb4;
+    background-image: linear-gradient(to bottom, #fff, #f5deb4);
+    box-shadow: 0 0 1px rgba(0,0,0,.4);             
+}
+
+/*Label's arrow - default state */
+.faq-section label::before{
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    margin-top: -6px;
+    border: 6px solid transparent;
+    border-left-color: inherit; 
+}
+
+/*Update the right arrow*/
+.faq-section input[type=checkbox]:checked~label::before{
+    border: 6px solid transparent;
+    border-top-color: inherit;
+    margin-top: -3px;
+    right: 10px;    
+}
+
+.faq-admin {
+    margin: 20px;
+}
+/************************/
+/*       END FAQ        */
+/************************/
+
+
+
+
+/************************/
+/*    CORNER RIBBONS    */
+/************************/
+
+.product {
+  margin: 50px auto;
+  width: 280px;
+  height: 370px;
+  background: white;
+  border: 1px solid #333;
+  position: relative;
+  z-index: 90;
+}
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;}
+  
+  .ribbon-new {
+    font: bold 15px sans-serif;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    top: 15px;
+    left: -30px;
+    width: 120px;
+    background-color: #37E01F; /*Ribbon Color*/
+    color: #FFF; /*Text Color*/
+  }
+
+  .ribbon-hot {
+    font: bold 15px sans-serif;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    top: 15px;
+    left: -30px;
+    width: 120px;
+    background-color: #f40; /*Ribbon Color*/
+    color: #FFF; /*Text Color*/
+  }
+
+.ribbon-traded {
+    font: bold 15px sans-serif;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    top: 15px;
+    left: -30px;
+    width: 120px;
+    background-color: #3158CE; /*Ribbon Color*/
+    color: #FFF; /*Text Color*/
+  }
+
+.ribbon-expired {
+    font: bold 15px sans-serif;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    top: 15px;
+    left: -30px;
+    width: 120px;
+    background-color: #2b2b2b; /*Ribbon Color*/
+    color: #FFF; /*Text Color*/
+  }
+
+.ribbon-deactivated {
+    font: bold 15px sans-serif;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    top: 15px;
+    left: -30px;
+    width: 120px;
+    background-color: #808080; /*Ribbon Color*/
+    color: #FFF; /*Text Color*/
+  }
+/************************/
+/*    END RIBBONS       */
+/************************/
+
+/************************/
+/*   THUMBNAIL VIEW     */
+/************************/
+.slide 
+    {
+        position:relative;
+        top:0;
+        right:0;
+        font-size:8px;
+        color:#cccccc;
+    }
+.slide a 
+    {
+        color:#cccccc;
+        text-decoration:none;
+        font-weight:normal;
+    }
+.slide a:hover 
+    {
+        color:#cccccc;
+        text-decoration:none;
+        font-weight:normal;
+    }
+#thumbnail_gallery 
+    {
+        margin:25px;
+        width:422px;
+        border:10px solid #F0F0F0;
+    }
+.gallery_big ul 
+    {
+        height:325px;
+        padding:10px;
+        margin:0;
+        background-color:#FFFFFF;
+        /*background-image: 
+        url(data:image/gif;base64,R0lGODlhcwAnAMQAAP///0ZGRtHR0aKionR0dPPz8+jo6Nzc3GhoaFFRUYuLi1xcXMXFxbm5uZeXl39/f66urgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABzACcAAAX/ICCOZHlAQwoZo+C+sFDARwkcccyKRZMOkBrAkMsVbKLYEclskhyBqDTgEE2vUcGUYCNgpwPR4EsojL9TAdJwhTjfSAU6EJ5nt117WI5GnO1qNn9RCHCGPFMID1MJAHYBWlJcJV5zAw2PCY+QSAtYQodOkVEOBnxRbFIIOY6SeYRGCFMLDQ2aUj+VUQo/OySjU1WholgJC2FWUsc/l61RkyS6y8zOAYUiEAsPQSODgUyntwELw2+yXwhHdlx4lIDBb95NBeKDDOXz51iF69XQI7q+AEPWRB4TTFIKeNqFzwkDBeKkMGBEoGLFKu2iSUlg0eIBeCIMPGjgC4BBJNIG/+gLsKThCAcEZBU6sAhXRhI3Rej6NyLRiFPXTKZhkmpOA5ckaka5N1EKwijTfnzc2JHAg5TMBjBQGoAAhFPjug1FMggd0hFPo0Rk+agsloBvgX05KmasjYV2SrpceQWjnkdwr3CBguYBiZO/pih4MUjY2QKBA9BtC7gfAAhr6ZRA/NNugVlnSRjwkYJByyIwDOBAfWA16pICfpC0QeQFURgmXoAKzbu379/AgwsfTry48Te1UbtwLaPFCwMzXpzWHf25c+rKfaUekfzbje3XBdSgIWhTwEADgX3bIveaXAJyryDzWVcKiYgKcLrKKbSyFPRgqNeTJPEdURZ8j7AgX/99UYzQ1EYt4cGfW2+NlZ5d7GFxD1wI6lFNFDUMMgJXUdDlz4klxJZCQLykABaAuAiYzDPxOfCZYAPdMIVh+/TXIAA3CjbgMygycdIgCFS00gAy+hMfAg8SqFhsUxz1RQpTYIPGDhK6UpBdFMrXZIZYgEWjHel8KAVXIujjQD0zdlUkWWBuwiSGUm7SVXyzqKGnjhKdQs6J/B1WZ1tj5tlVhWfaQU4waABAWBQDnEeol0YemkUSASomQpQOjFKRfIpqBgBYU2VBYoOZedolkV/+J5asAAwUZAAJOJDNFBCIWpaowCzGQEBpyZBZlF8kcCs7VHVk2KybMshJrWAAEBnuhMCSuecmRXGCbACrYpEWs3MYSquP0+Z4QKtRuCFqNXc2Okd+Y4ULiwtRBkRupNBOiy6MlIpwAF4b3UMtkbq4UOoVucYZCD1ouDECwa/yywMMLVXXXBLWccfAD6aNUB0LyXEsXq1FwCYdd6i19J1uuqHM2nE019wbNT+I0Y1JKYiRs8/IZMUzQT8PHXTRQ3fTM89KD0eQzk2bJPXOOhNN9dRQS/001oftbHUYYHP9G9g9/xw22UcvLXTWZguydNJXsz110E573TXTT9ONtdVZ773Z33J/DfXWY6uttteHV3010W+b7XjiRbc99yEhAAA7);
+        */
+        background-repeat:no-repeat;
+        background-position:center;
+    }
+.gallery_big ul li 
+    {
+        list-style:none;
+        margin:0;
+        padding:0;
+        float:left;
+        height:325px;
+    }
+.gallery_big ul li img 
+    {
+        margin:0;
+        width:0;
+        height:0;
+        border:0;
+        overflow:hidden;
+            -moz-transition:width 1s ease;
+            -webkit-transition:width 1s ease;  
+            -o-transition:width 1s ease;
+            transition:width 1s ease;
+    }
+.gallery_big ul li:target img 
+    {
+        width:400px;
+        height:325px;
+    }
+.gallery_preview 
+    {
+        height:auto;
+        margin:0;
+        padding:0;
+        background:#F0F0F0;
+    }
+.gallery_preview ul 
+    {
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+.gallery_preview ul li
+    {
+        float:left;
+        text-align:center;
+        margin:5px 5px;
+        padding:0;
+        background:#F0F0F0;
+    }
+.gallery_preview ul li img 
+    {
+        border:1px solid #9F9F9F;
+        padding:2px;
+        margin:0;
+        background-color:#FFFFFF;
+    }
+.gallery_preview ul li a 
+    {
+        outline:0;
+    }
+.gallery_preview ul li a:hover img, 
+.gallery_preview ul li a:active img, 
+.gallery_preview ul li a:focus img 
+    {
+        border-color:#FFFFFF;
+    }
+/************************/
+/*  END THUMBNAIL VIEW  */
+/************************/

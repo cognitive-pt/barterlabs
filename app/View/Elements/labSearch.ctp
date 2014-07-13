@@ -13,15 +13,6 @@
 
 
 		<?php 
-			echo $this->Form->input('state_id', array(
-					'label'=> 'State',
-					'class'=> 'span2',
-					'id' => 'state_id',
-					'options' => array(
-								'' => 'ALL',
-								'Town' => $state)
-			 				));
-
 				echo $this->Form->input('town_id', array(
 				        'label' => 'Town',
 						'class'=>'span2',

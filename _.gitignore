@@ -3,7 +3,9 @@
 /sftp-config.json
 c:\xampp\htdocs\barterlabs\sftp-config.json
 /app/Config/database.php
+/app/Config/email.php
 c:\xampp\htdocs\barterlabs\app\config\database.php
+c:\xampp\htdocs\barterlabs\app\config\email.php
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
