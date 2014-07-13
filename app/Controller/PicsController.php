@@ -91,12 +91,7 @@ class PicsController extends AppController {
 				unset($this->request->data['Picture']['name']);
 			}
 		}
-
-
-
 	}
-
-
 
 
 /**

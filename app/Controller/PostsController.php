@@ -1,14 +1,12 @@
 <?php /* PostsController.php */
 
 
-
 class PostsController extends AppController {
 
 	public $helpers = array('Html', 'Form');
 
 	var $components = array('RequestHandler');
 	var $name = 'Posts';
-
 
 
 	public $uses = array('Usermgmt.User', 'Post', 'Pic', 'Comment');
@@ -23,13 +21,7 @@ class PostsController extends AppController {
 				)
 			)
 		);
-
-
-
-
-
 	}
-
 
 	public function view($id = null) {
 
@@ -82,14 +74,7 @@ class PostsController extends AppController {
 	            $this->Session->setFlash(__('Unable to add your comment.'));
         
 				}
-
-
-
-
-
     }
-
-
 
     public function add() {
     	$this->layout = 'posts';
@@ -111,10 +96,6 @@ class PostsController extends AppController {
 	                return $this->redirect(array('action' => 'index'));
 	            }
 	            $this->Session->setFlash(__('Unable to add your post.'));
-        
-
-
-
    	 	}
     }
 
@@ -173,8 +154,6 @@ class PostsController extends AppController {
 	    }
 }
 
-
-
 		public function addPic($id) {
 
 			$userId = $this->UserAuth->getUserId();
@@ -200,10 +179,6 @@ class PostsController extends AppController {
 								    'height' => 500,
 								    'paddings' => true
 								));
-							
-		//****************************************
-		//****************************************
-
 							//inserts hashed filename into table row
 							$this->request->data['Pic']['name']=$photo;
 							//inserts the current labId
@@ -216,7 +191,6 @@ class PostsController extends AppController {
 								unlink($fullpath.DS.$Pic['Pic']['name']);
 							}
 						}
-
 						else {
 							unset($this->request->data['Pic']['name']);
 						}
@@ -234,22 +208,16 @@ class PostsController extends AppController {
 
 
 public function viewPic($id) {
-
 		$this->layout = 'posts';
-
 		$viewPic = $this->Pic->find('first', array(
-
 			'conditions' => 
 				array('Pic.id' => $id)
 				)
 			);
-
 		$this->set('viewPic', $viewPic);
 }
 
 public function editPic($id = null) {
-
-
 		$res = $this->Pic->find('first', array('conditions'=>array('Pic.id'=>$id),'recursive'=>0));
 
 			if (!$this->Pic->exists($id)) {
@@ -295,7 +263,5 @@ public function deletePic($id) {
 		}
 
 } //end of PostsController.php
-
-
 
 ?>

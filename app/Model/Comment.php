@@ -5,7 +5,6 @@ App::uses('UserMgmtAppModel', 'Usermgmt.Model');
 class Comment extends AppModel {
 	var $belongsTo = array('User', 'Post');
 
-
 			 public $validate = array(
 			        'name' => array(
 			            'rule' => 'notEmpty'
@@ -15,7 +14,6 @@ class Comment extends AppModel {
 			        )
 			    );
 
-
 function getComments($id){
 		$getComments = $this->find('all', array(
 			'conditions' => array('Comment.post_id' => $id),
@@ -23,8 +21,5 @@ function getComments($id){
 			)
 		); 
 		return $getComments;} //end getComments();
-
-
-
 }
 ?>

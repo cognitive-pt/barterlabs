@@ -8,8 +8,6 @@ App::uses('Pic','Model');
 
 class Lab extends AppModel {
 
-
-
 var $name = 'Lab';
 
 		public $validate = array(
@@ -64,8 +62,6 @@ public $filterArgs = array(
 	
 	);    
 
-
-
 public function orConditions($data = array()) {
     $filterName = key($data);
     $filter = Set::extract('/.[name='.$filterName.']', $this->filterArgs);
@@ -81,11 +77,8 @@ public function orConditions($data = array()) {
     return array($ds->expression('MATCH ('.implode(',',array_map(array($ds, 'name'), $field)).') AGAINST ('.$ds->value($query).' IN BOOLEAN MODE)'));
     }
 
-
-
-
 public function returnVersionNumber(){
- return $GLOBALS['VERSION_NUMBER'];
+ 	return $GLOBALS['VERSION_NUMBER'];
 }
    
 public function hot($score, $id) {
@@ -109,13 +102,11 @@ public function hot($score, $id) {
    
     return round($sign * $order + $seconds / 45000, 7);}
 
-
 public function updateHot($hot, $id){
 	$this->id=$id;
 	$this->save($this->data['Lab']['hot']=$hot);	
 	return;
 	}
-
 
 function getLab($id) {
 		$options = array('conditions' => array('Lab.' . $this->primaryKey => $id));
@@ -147,7 +138,6 @@ function getViewedUserLabIds2($viewedUserId) {
 			)
 		); return $viewedUserLabIds;} //end getViewedUserLabIds2();
 
-
 function getUserLabIds($userId) {
 		//loads all of the selected user's lab (only Lab IDs)
 		$userLabIds = $this->find('all', array(
@@ -157,7 +147,6 @@ function getUserLabIds($userId) {
 			)
 		); return $userLabIds;} //end getViewedUserLabIds();
 
-
 function getViewedUserId($id){
 		$res = $this->find('first', array(
 			'conditions' => array('Lab.id' => $id),
@@ -166,8 +155,6 @@ function getViewedUserId($id){
 		); 
 		$viewedUserId = (!empty($res)) ? ($res['Lab']['user_id']) : '';
 		return $viewedUserId;} //end getViewedUserId();
-
-
 
 function getTownId($id){
 		//loads the user's town Id based on lab Id
@@ -190,8 +177,5 @@ function getStateId($id){
 		);	
 		$stateId = (!empty($res)) ? ($res['Lab']['state_id']) : '';
 		return $stateId;} //end getTownId()
-
-
-
 }
 ?>

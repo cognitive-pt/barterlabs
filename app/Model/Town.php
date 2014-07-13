@@ -72,7 +72,5 @@ public $validate = array(
 		return $townName;
 } //end getTownName()
 
-
-
 }
 ?>

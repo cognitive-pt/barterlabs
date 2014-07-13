@@ -13,12 +13,6 @@ public $actsAs = array('Search.Searchable');
 			$res = $this->Lab->State->find('first', array('conditions' =>array('State.id'=>$stateId), 'fields'=> array('State.name')));
 			//save State name as a string
 			$stateName = (!empty($res)) ? ($res['State']['name']) : '';	
-			return $stateName;} //end of getStateName
-
-
-
-
-
-	
+			return $stateName;} //end of getStateName	
 }
 ?>

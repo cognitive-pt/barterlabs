@@ -9,7 +9,6 @@ class Post extends AppModel {
 	var $belongsTo = array('User');
 	var $hasMany = array('Pic', 'Comment');
 
-
 			 public $validate = array(
 			        'title' => array(
 			            'rule' => 'notEmpty'
@@ -18,8 +17,6 @@ class Post extends AppModel {
 			            'rule' => 'notEmpty'
 			        )
 			    );
-
-
 
 	function getAuthorName($uesr_id){
 			//loads a username based on the post's user_id
@@ -32,10 +29,5 @@ class Post extends AppModel {
 			);	
 			return $res;
 		} 
-	
-
-}
-
-
-
+	}
 ?>

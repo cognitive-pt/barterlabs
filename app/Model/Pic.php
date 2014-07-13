@@ -18,7 +18,6 @@ public $actsAs = array('Search.Searchable');
 						))
 			);
 					
-	
 	public function getLabPics($id){
 	$labPics = $this->find('all', array(
 			'conditions' => array('Pic.lab_id' => $id)
@@ -26,8 +25,6 @@ public $actsAs = array('Search.Searchable');
 		);
 	return $labPics;}//end getLabPics()
 				
-
-
 	public function getPostPics($id){
 	$postPics = $this->find('all', array(
 			'conditions' => array('Pic.post_id' => $id)
@@ -35,9 +32,7 @@ public $actsAs = array('Search.Searchable');
 		);
 	return $postPics;}//end getPostPics()		
 							
-
-							
-	public function nullOldDisPic($id) {
+public function nullOldDisPic($id) {
 		//this function finds the old Display Picture
 		//and inserts a value of NULL
 		//as of yet I haven't got this function to work properly
@@ -55,7 +50,6 @@ public $actsAs = array('Search.Searchable');
 			return;
 		}
 							
-							
 public function isDisPic($id) {
 
 		$res = $this->find('first', array(
@@ -70,9 +64,7 @@ public function isDisPic($id) {
 				else		
 				{return $isDisPic = true;}
 	
-}
+	}
 
-	
-}
-	
+}	
 ?>
