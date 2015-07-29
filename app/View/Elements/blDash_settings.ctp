@@ -1,7 +1,7 @@
 <?php /************* START OF SETTINGS ***************/ ?>
 	<ul class="nav nav-pills">
 		<li class='dropdown'>
-			<?php echo $this->Html->link(__($this->Html->image('icons/glyphicon-cog.png')).' <b class="caret"></b>', '#', 
+			<?php echo $this->Html->link(__($this->Html->image('/img/icons/glyphicon-cog.png')).' <b class="caret"></b>', '#', 
 				array(	
 					'rel'=>'tooltip',//tooltip init
 					'data-placement'=>'bottom', //tooltip placement
