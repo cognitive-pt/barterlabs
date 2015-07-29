@@ -44,7 +44,7 @@
 
             <div class="photo-box pure-u-1 pure-u-med-1-3 pure-u-lrg-1-4">
                 <a href="http://www.barterlabs.com/posts/">
-                    <img src="/img/barter_blog/barter2c.jpg" alt="Barterlabs Blog"> 
+                    <img src="img/barter_blog/barter2c.jpg" alt="Barterlabs Blog"> 
                 </a>
                 <aside class="photo-box-caption">
                     <span><a href="http://www.barterlabs.com/posts/">Barterlabs Blog</a></span>
@@ -146,7 +146,7 @@
 
                         <div class="photo-box pure-u-1 pure-u-med-1-3">
                             <a href="http://www.barterlabs.com/posts">
-                                <img src="/img/barter_blog/barter2c.jpg"
+                                <img src="img/barter_blog/barter2c.jpg"
                                      alt="Barterlabs Blog">
                             </a>
                             <aside class="photo-box-caption">
